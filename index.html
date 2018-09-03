@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/04/03/countdowns/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/04/05/countdowns/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/03/countdowns/" itemprop="url">多个倒计时并行(拼团倒计时)</a></h1>
+                <a class="post-title-link" href="/2018/04/05/countdowns/" itemprop="url">多个倒计时并行(拼团倒计时)</a></h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-03T00:00:00+08:00">
-                2018-04-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T00:00:00+08:00">
+                2018-04-05
               </time>
             
 
@@ -325,7 +325,7 @@
 </ul>
 <p>简化完毕， 把自己刚才的思路带进方法内<br>在定时器里 写一个循环 每次减少一秒 让当前数据内remainTime时间戳-1000<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">countdown () &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; self.list.length; i++) &#123;</span><br><span class="line">            self.list[i].remainTime -= <span class="number">1000</span></span><br><span class="line">            <span class="keyword">let</span> t = self.list[i].remainTime</span><br><span class="line">            <span class="keyword">if</span> (t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(t / <span class="number">86400000</span>)</span><br><span class="line">                <span class="keyword">let</span> hour = <span class="built_in">Math</span>.floor((t / <span class="number">3600000</span>) % <span class="number">24</span>)</span><br><span class="line">                <span class="keyword">let</span> min = <span class="built_in">Math</span>.floor((t / <span class="number">60000</span>) % <span class="number">60</span>)</span><br><span class="line">                <span class="keyword">let</span> sec = <span class="built_in">Math</span>.floor((t / <span class="number">1000</span>) % <span class="number">60</span>)</span><br><span class="line">                day = day &lt; <span class="number">10</span> ? <span class="string">'0'</span> + day : day</span><br><span class="line">                hour = hour &lt; <span class="number">10</span> ? <span class="string">'0'</span> + hour : hour</span><br><span class="line">                min = min &lt; <span class="number">10</span> ? <span class="string">'0'</span> + min : min</span><br><span class="line">                sec = sec &lt; <span class="number">10</span> ? <span class="string">'0'</span> + sec : sec</span><br><span class="line">                <span class="keyword">let</span> format = <span class="string">''</span></span><br><span class="line">                format = <span class="string">`距离结束：&lt;b&gt;<span class="subst">$&#123;day&#125;</span>&lt;/b&gt; 天 &lt;b&gt;<span class="subst">$&#123;hour&#125;</span>&lt;/b&gt; </span></span><br><span class="line"><span class="string">时 &lt;b&gt;<span class="subst">$&#123;min&#125;</span>&lt;/b&gt; 分 &lt;b&gt;<span class="subst">$&#123;sec&#125;</span>&lt;/b&gt; 秒`</span></span><br><span class="line">                self.list[i].remainTimeStr = format</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 进行判断 如果数据内所有的倒计时已经结束，那么结束定时器， 如果没有那么继续执行定时器</span></span><br><span class="line">                <span class="keyword">let</span> flag = self.list.every(<span class="function">(<span class="params">val, ind</span>) =&gt;</span> </span><br><span class="line"> </span><br><span class="line">val.remainTime &lt;= <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">if</span> (flag) clearInterval(timer)</span><br><span class="line">                self.list[i].remainTimeStr = <span class="string">`距离结束：&lt;b&gt;00&lt;/b&gt; 天 </span></span><br><span class="line"><span class="string">&lt;b&gt;00&lt;/b&gt; 时 &lt;b&gt;00&lt;/b&gt; 分 &lt;b&gt;00&lt;/b&gt; 秒`</span> <span class="comment">// 结束文案</span></span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这样 并行多个定时器就做好了, 但是发现了一个问题 当你切换路由的时候 发下你的定时器如果未结束 他还在执行，这样对性能造成了一些影响， 虽说用户看不到，但是也要解决，提高用户浏览体验<br>在你切换页面的时候 使用vue中的生命周期函数把数据更改为0 就ok<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">destroyed () &#123;</span><br><span class="line">    <span class="keyword">this</span>.list.forEach(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">        val.remainTime = <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>还有一些什么好的方法可以联系我喔~<br><img src="/2018/04/03/countdowns/20170226154126642.jpg" alt="thanks"></p>
+<p>还有一些什么好的方法可以联系我喔~<br><img src="/2018/04/05/countdowns/20170226154126642.jpg" alt="thanks"></p>
 
           
         
