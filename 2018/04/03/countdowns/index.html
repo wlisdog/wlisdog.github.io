@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="i&apos;m a small programmers">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yhl">
-<meta property="og:url" content="http://loverwl.com/index.html">
+<meta name="description" content="本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue) 写一个准备渲染的死数据123456789101112131415161718data () &amp;#123;    return &amp;#123;        list: [ //">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多个倒计时并行(拼团倒计时)">
+<meta property="og:url" content="http://loverwl.com/2018/04/03/countdowns/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="i&apos;m a small programmers">
+<meta property="og:description" content="本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue) 写一个准备渲染的死数据123456789101112131415161718data () &amp;#123;    return &amp;#123;        list: [ //">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://loverwl.com/2018/04/03/countdowns/20170226154126642.jpg">
+<meta property="og:updated_time" content="2018-09-03T09:27:20.467Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yhl">
-<meta name="twitter:description" content="i&apos;m a small programmers">
+<meta name="twitter:title" content="多个倒计时并行(拼团倒计时)">
+<meta name="twitter:description" content="本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue) 写一个准备渲染的死数据123456789101112131415161718data () &amp;#123;    return &amp;#123;        list: [ //">
+<meta name="twitter:image" content="http://loverwl.com/2018/04/03/countdowns/20170226154126642.jpg">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/"/>
+  <link rel="canonical" href="http://loverwl.com/2018/04/03/countdowns/"/>
 
 
 
 
 
-  <title>Yhl</title>
+  <title>多个倒计时并行(拼团倒计时) | Yhl</title>
   
 
 
@@ -143,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -259,9 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/03/countdowns/" itemprop="url">多个倒计时并行(拼团倒计时)</a></h1>
+          <h1 class="post-title" itemprop="name headline">多个倒计时并行(拼团倒计时)</h1>
         
 
         <div class="post-meta">
@@ -311,9 +311,7 @@
       
 
       
-        
-          
-            <p>本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue)</p>
+        <p>本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue)</p>
 <h3 id="写一个准备渲染的死数据"><a href="#写一个准备渲染的死数据" class="headerlink" title="写一个准备渲染的死数据"></a>写一个准备渲染的死数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        list: [ <span class="comment">// 准备渲染的数据</span></span><br><span class="line">            &#123;</span><br><span class="line">                remainTime: <span class="number">900000</span>, <span class="comment">// 距离结束还有多久</span></span><br><span class="line">                remainTimeStr: <span class="string">''</span> <span class="comment">// 展示文案</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                remainTime: <span class="number">400000</span>,</span><br><span class="line">                remainTimeStr: <span class="string">''</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                remainTime: <span class="number">60500</span>,</span><br><span class="line">                remainTimeStr: <span class="string">''</span></span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="百度copy一个倒计时的方法"><a href="#百度copy一个倒计时的方法" class="headerlink" title="百度copy一个倒计时的方法"></a>百度copy一个倒计时的方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">countdowm (timestamp) &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> nowTime = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">        <span class="keyword">let</span> endTime = <span class="keyword">new</span> <span class="built_in">Date</span>(timestamp)</span><br><span class="line">        <span class="keyword">let</span> t = endTime.getTime() - nowTime.getTime()</span><br><span class="line">        <span class="keyword">if</span> (t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(t / <span class="number">86400000</span>)</span><br><span class="line">            <span class="keyword">let</span> hour = <span class="built_in">Math</span>.floor((t / <span class="number">3600000</span>) % <span class="number">24</span>)</span><br><span class="line">            <span class="keyword">let</span> min = <span class="built_in">Math</span>.floor((t / <span class="number">60000</span>) % <span class="number">60</span>)</span><br><span class="line">            <span class="keyword">let</span> sec = <span class="built_in">Math</span>.floor((t / <span class="number">1000</span>) % <span class="number">60</span>)</span><br><span class="line">            hour = hour &lt; <span class="number">10</span> ? <span class="string">'0'</span> + hour : hour</span><br><span class="line">            min = min &lt; <span class="number">10</span> ? <span class="string">'0'</span> + min : min</span><br><span class="line">            sec = sec &lt; <span class="number">10</span> ? <span class="string">'0'</span> + sec : sec</span><br><span class="line">            <span class="keyword">let</span> format = <span class="string">''</span></span><br><span class="line">            <span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                format = <span class="string">`<span class="subst">$&#123;day&#125;</span>天<span class="subst">$&#123;hour&#125;</span>小时<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (day &lt;= <span class="number">0</span> &amp;&amp; hour &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                format = <span class="string">`<span class="subst">$&#123;hour&#125;</span>小时<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (day &lt;= <span class="number">0</span> &amp;&amp; hour &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                format = <span class="string">`<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            &#125;</span><br><span class="line">            self.content = format</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            clearInterval(timer)</span><br><span class="line">            self.content = <span class="string">'over'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="捋清逻辑"><a href="#捋清逻辑" class="headerlink" title="捋清逻辑"></a>捋清逻辑</h3><p>首先， 根据逻辑对倒计时的方法进行更改,我们直接使用的就是距离结束还有多少时间的时间戳 ，我的思路是用一个定时器达到一个并行多个倒计时的思路，所以先将方法进行优化</p>
@@ -327,14 +325,15 @@
 <p>这样 并行多个定时器就做好了, 但是发现了一个问题 当你切换路由的时候 发下你的定时器如果未结束 他还在执行，这样对性能造成了一些影响， 虽说用户看不到，但是也要解决，提高用户浏览体验<br>在你切换页面的时候 使用vue中的生命周期函数把数据更改为0 就ok<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">destroyed () &#123;</span><br><span class="line">    <span class="keyword">this</span>.list.forEach(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">        val.remainTime = <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>还有一些什么好的方法可以联系我喔~<br><img src="/2018/04/03/countdowns/20170226154126642.jpg" alt="thanks"></p>
 
-          
-        
       
     </div>
     
     
     
     <div>
+      
+        
+
       
     </div>
     
@@ -347,150 +346,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/02/03/axios-request/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yhl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yhl">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/03/axios-request/" itemprop="url">针对vue-cli axios请求跨域问题及qs用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T16:53:35+08:00">
-                2018-02-03
-              </time>
+              <a href="/2018/02/03/axios-request/" rel="next" title="针对vue-cli axios请求跨域问题及qs用法">
+                <i class="fa fa-chevron-left"></i> 针对vue-cli axios请求跨域问题及qs用法
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：</p>
-<p><img src="/2018/02/03/axios-request/20180419115005643.png" alt="kuayu"></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先找到config/index.js 的dev中的配置如下</p>
-<p><img src="/2018/02/03/axios-request/20180419114900776.png" alt="proxy"></p>
-<p>在maxin.js中将axios注入到vue中</p>
-<p><img src="/2018/02/03/axios-request/20180419115052948.png" alt="use"></p>
-<p>在页面中进行请求</p>
-<p><img src="/2018/02/03/axios-request/20180419115206143.png" alt="reuest"></p>
-<p>你会发现请求成功了 but</p>
-<p><img src="/2018/02/03/axios-request/20180419115351298.png" alt="100"></p>
-<p>err却是100</p>
-<p>qs: 查询字符串解析和字符串化库，增加了一些安全性</p>
-<p>npm install qs –save-dev</p>
-<p><img src="/2018/02/03/axios-request/20180419115623648.png" alt="qs"></p>
-<p>可以理解为qs 类似于JSON.stringify转换格式的一种方法</p>
-<p>这时候问题来了 我们在项目中会有好多组件，那么我每个组件中都去引入一个qs很麻烦 </p>
-<p>解决办法 我换了一种注入方式<br><img src="/2018/02/03/axios-request/20180419115950412.png" alt="qsuse"><br>将这个页面注入到vue中,这样在我们调用this.$http时 就可以免去引用qs 跟使用qs.stringify方法了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    <div>
-      
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -500,10 +377,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -511,6 +389,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -531,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -578,6 +469,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个准备渲染的死数据"><span class="nav-number">1.</span> <span class="nav-text">写一个准备渲染的死数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度copy一个倒计时的方法"><span class="nav-number">2.</span> <span class="nav-text">百度copy一个倒计时的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捋清逻辑"><span class="nav-number">3.</span> <span class="nav-text">捋清逻辑</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -711,6 +618,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
