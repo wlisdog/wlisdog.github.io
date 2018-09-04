@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
+<html class="theme-next muse use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,7 +96,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -291,6 +291,17 @@
 
           
           
+             <span id="/2018/04/05/countdowns/" class="leancloud_visitors" data-flag-title="多个倒计时并行(拼团倒计时)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -313,21 +324,16 @@
       
         
           
-            <p>本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue)</p>
-<h3 id="写一个准备渲染的死数据"><a href="#写一个准备渲染的死数据" class="headerlink" title="写一个准备渲染的死数据"></a>写一个准备渲染的死数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        list: [ <span class="comment">// 准备渲染的数据</span></span><br><span class="line">            &#123;</span><br><span class="line">                remainTime: <span class="number">900000</span>, <span class="comment">// 距离结束还有多久</span></span><br><span class="line">                remainTimeStr: <span class="string">''</span> <span class="comment">// 展示文案</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                remainTime: <span class="number">400000</span>,</span><br><span class="line">                remainTimeStr: <span class="string">''</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                remainTime: <span class="number">60500</span>,</span><br><span class="line">                remainTimeStr: <span class="string">''</span></span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="百度copy一个倒计时的方法"><a href="#百度copy一个倒计时的方法" class="headerlink" title="百度copy一个倒计时的方法"></a>百度copy一个倒计时的方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">countdowm (timestamp) &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> nowTime = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">        <span class="keyword">let</span> endTime = <span class="keyword">new</span> <span class="built_in">Date</span>(timestamp)</span><br><span class="line">        <span class="keyword">let</span> t = endTime.getTime() - nowTime.getTime()</span><br><span class="line">        <span class="keyword">if</span> (t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(t / <span class="number">86400000</span>)</span><br><span class="line">            <span class="keyword">let</span> hour = <span class="built_in">Math</span>.floor((t / <span class="number">3600000</span>) % <span class="number">24</span>)</span><br><span class="line">            <span class="keyword">let</span> min = <span class="built_in">Math</span>.floor((t / <span class="number">60000</span>) % <span class="number">60</span>)</span><br><span class="line">            <span class="keyword">let</span> sec = <span class="built_in">Math</span>.floor((t / <span class="number">1000</span>) % <span class="number">60</span>)</span><br><span class="line">            hour = hour &lt; <span class="number">10</span> ? <span class="string">'0'</span> + hour : hour</span><br><span class="line">            min = min &lt; <span class="number">10</span> ? <span class="string">'0'</span> + min : min</span><br><span class="line">            sec = sec &lt; <span class="number">10</span> ? <span class="string">'0'</span> + sec : sec</span><br><span class="line">            <span class="keyword">let</span> format = <span class="string">''</span></span><br><span class="line">            <span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                format = <span class="string">`<span class="subst">$&#123;day&#125;</span>天<span class="subst">$&#123;hour&#125;</span>小时<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (day &lt;= <span class="number">0</span> &amp;&amp; hour &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                format = <span class="string">`<span class="subst">$&#123;hour&#125;</span>小时<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (day &lt;= <span class="number">0</span> &amp;&amp; hour &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                format = <span class="string">`<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            &#125;</span><br><span class="line">            self.content = format</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            clearInterval(timer)</span><br><span class="line">            self.content = <span class="string">'over'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="捋清逻辑"><a href="#捋清逻辑" class="headerlink" title="捋清逻辑"></a>捋清逻辑</h3><p>首先， 根据逻辑对倒计时的方法进行更改,我们直接使用的就是距离结束还有多少时间的时间戳 ，我的思路是用一个定时器达到一个并行多个倒计时的思路，所以先将方法进行优化</p>
-<ul>
-<li>不需要获取时间</li>
-<li>也不需要一些时间计算</li>
-<li>因为是多个倒计时并行 所以清楚定时器的逻辑需要进行更改<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">countdowm (timestamp) &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> t = timestamp</span><br><span class="line">        <span class="keyword">if</span> (t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(t / <span class="number">86400000</span>)</span><br><span class="line">            <span class="keyword">let</span> hour = <span class="built_in">Math</span>.floor((t / <span class="number">3600000</span>) % <span class="number">24</span>)</span><br><span class="line">            <span class="keyword">let</span> min = <span class="built_in">Math</span>.floor((t / <span class="number">60000</span>) % <span class="number">60</span>)</span><br><span class="line">            <span class="keyword">let</span> sec = <span class="built_in">Math</span>.floor((t / <span class="number">1000</span>) % <span class="number">60</span>)</span><br><span class="line">            day = day &lt; <span class="number">10</span> ? <span class="string">'0'</span> + day : day</span><br><span class="line">            hour = hour &lt; <span class="number">10</span> ? <span class="string">'0'</span> + hour : hour</span><br><span class="line">            min = min &lt; <span class="number">10</span> ? <span class="string">'0'</span> + min : min</span><br><span class="line">            sec = sec &lt; <span class="number">10</span> ? <span class="string">'0'</span> + sec : sec</span><br><span class="line">            <span class="keyword">let</span> format = <span class="string">''</span></span><br><span class="line">            format = <span class="string">`<span class="subst">$&#123;day&#125;</span>天<span class="subst">$&#123;hour&#125;</span>小时<span class="subst">$&#123;min&#125;</span>分<span class="subst">$&#123;sec&#125;</span>秒`</span></span><br><span class="line">            self.content = format</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// clearInterval(timer)</span></span><br><span class="line">            self.content = <span class="string">'over'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>简化完毕， 把自己刚才的思路带进方法内<br>在定时器里 写一个循环 每次减少一秒 让当前数据内remainTime时间戳-1000<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">countdown () &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">let</span> timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; self.list.length; i++) &#123;</span><br><span class="line">            self.list[i].remainTime -= <span class="number">1000</span></span><br><span class="line">            <span class="keyword">let</span> t = self.list[i].remainTime</span><br><span class="line">            <span class="keyword">if</span> (t &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(t / <span class="number">86400000</span>)</span><br><span class="line">                <span class="keyword">let</span> hour = <span class="built_in">Math</span>.floor((t / <span class="number">3600000</span>) % <span class="number">24</span>)</span><br><span class="line">                <span class="keyword">let</span> min = <span class="built_in">Math</span>.floor((t / <span class="number">60000</span>) % <span class="number">60</span>)</span><br><span class="line">                <span class="keyword">let</span> sec = <span class="built_in">Math</span>.floor((t / <span class="number">1000</span>) % <span class="number">60</span>)</span><br><span class="line">                day = day &lt; <span class="number">10</span> ? <span class="string">'0'</span> + day : day</span><br><span class="line">                hour = hour &lt; <span class="number">10</span> ? <span class="string">'0'</span> + hour : hour</span><br><span class="line">                min = min &lt; <span class="number">10</span> ? <span class="string">'0'</span> + min : min</span><br><span class="line">                sec = sec &lt; <span class="number">10</span> ? <span class="string">'0'</span> + sec : sec</span><br><span class="line">                <span class="keyword">let</span> format = <span class="string">''</span></span><br><span class="line">                format = <span class="string">`距离结束：&lt;b&gt;<span class="subst">$&#123;day&#125;</span>&lt;/b&gt; 天 &lt;b&gt;<span class="subst">$&#123;hour&#125;</span>&lt;/b&gt; </span></span><br><span class="line"><span class="string">时 &lt;b&gt;<span class="subst">$&#123;min&#125;</span>&lt;/b&gt; 分 &lt;b&gt;<span class="subst">$&#123;sec&#125;</span>&lt;/b&gt; 秒`</span></span><br><span class="line">                self.list[i].remainTimeStr = format</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 进行判断 如果数据内所有的倒计时已经结束，那么结束定时器， 如果没有那么继续执行定时器</span></span><br><span class="line">                <span class="keyword">let</span> flag = self.list.every(<span class="function">(<span class="params">val, ind</span>) =&gt;</span> </span><br><span class="line"> </span><br><span class="line">val.remainTime &lt;= <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">if</span> (flag) clearInterval(timer)</span><br><span class="line">                self.list[i].remainTimeStr = <span class="string">`距离结束：&lt;b&gt;00&lt;/b&gt; 天 </span></span><br><span class="line"><span class="string">&lt;b&gt;00&lt;/b&gt; 时 &lt;b&gt;00&lt;/b&gt; 分 &lt;b&gt;00&lt;/b&gt; 秒`</span> <span class="comment">// 结束文案</span></span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样 并行多个定时器就做好了, 但是发现了一个问题 当你切换路由的时候 发下你的定时器如果未结束 他还在执行，这样对性能造成了一些影响， 虽说用户看不到，但是也要解决，提高用户浏览体验<br>在你切换页面的时候 使用vue中的生命周期函数把数据更改为0 就ok<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">destroyed () &#123;</span><br><span class="line">    <span class="keyword">this</span>.list.forEach(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">        val.remainTime = <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>还有一些什么好的方法可以联系我喔~<br><img src="/2018/04/05/countdowns/20170226154126642.jpg" alt="thanks"></p>
-
-          
+          本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue)
+写一个准备渲染的死数据123456789101112131415161718data () &#123;    return &#123;        list: [ // 准备渲染的数据            &#123;                remainTi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/05/countdowns/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -425,6 +431,17 @@
 
           
           
+             <span id="/2018/02/03/axios-request/" class="leancloud_visitors" data-flag-title="针对vue-cli axios请求跨域问题及qs用法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -447,25 +464,30 @@
       
         
           
-            <p>在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：</p>
-<p><img src="/2018/02/03/axios-request/20180419115005643.png" alt="kuayu"></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先找到config/index.js 的dev中的配置如下</p>
-<p><img src="/2018/02/03/axios-request/20180419114900776.png" alt="proxy"></p>
-<p>在maxin.js中将axios注入到vue中</p>
-<p><img src="/2018/02/03/axios-request/20180419115052948.png" alt="use"></p>
-<p>在页面中进行请求</p>
-<p><img src="/2018/02/03/axios-request/20180419115206143.png" alt="reuest"></p>
-<p>你会发现请求成功了 but</p>
-<p><img src="/2018/02/03/axios-request/20180419115351298.png" alt="100"></p>
-<p>err却是100</p>
-<p>qs: 查询字符串解析和字符串化库，增加了一些安全性</p>
-<p>npm install qs –save-dev</p>
-<p><img src="/2018/02/03/axios-request/20180419115623648.png" alt="qs"></p>
-<p>可以理解为qs 类似于JSON.stringify转换格式的一种方法</p>
-<p>这时候问题来了 我们在项目中会有好多组件，那么我每个组件中都去引入一个qs很麻烦 </p>
-<p>解决办法 我换了一种注入方式<br><img src="/2018/02/03/axios-request/20180419115950412.png" alt="qsuse"><br>将这个页面注入到vue中,这样在我们调用this.$http时 就可以免去引用qs 跟使用qs.stringify方法了</p>
+          在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：
 
-          
+解决方案首先找到config/index.js 的dev中的配置如下
+
+在maxin.js中将axios注入到vue中
+
+在页面中进行请求
+
+你会发现请求成功了 but
+
+err却是100
+qs: 查询字符串解析和字符串化库，增加了一些安全性
+npm install qs –save-dev
+
+可以理解为qs 类似于JSON.stringify转换格式的一种方法
+这时候问题来了 我们在
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/03/axios-request/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -566,6 +588,22 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wlisdog" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/my_atlassian_yhl" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
 
           
           
@@ -602,20 +640,22 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
 
 
 
@@ -759,6 +799,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("fNdGzojoD3r0VVXQAEKGSbdr-gzGzoHsz", "rnXBxt6FbsRoaWPG0t4QQ8VX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
