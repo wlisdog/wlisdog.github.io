@@ -98,7 +98,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -142,7 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -465,7 +465,7 @@
 
 解决方案首先找到config/index.js 的dev中的配置如下
 
-在maxin.js中将axios注入到vue中
+在main.js中将axios注入到vue中
 
 在页面中进行请求
 
@@ -476,7 +476,7 @@ qs: 查询字符串解析和字符串化库，增加了一些安全性
 npm install qs –save-dev
 
 可以理解为qs 类似于JSON.stringify转换格式的一种方法
-这时候问题来了 我们在
+这时候问题来了 我们在项
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -696,9 +696,6 @@ npm install qs –save-dev
 
 
 
-  
-  
-
 
 
 
@@ -733,16 +730,6 @@ npm install qs –save-dev
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
   
 
 

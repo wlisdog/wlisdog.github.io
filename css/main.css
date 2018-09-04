@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #59090f;
+  background: #629100;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2700,7 +2700,6 @@ a:hover {
   margin-bottom: 40px;
   padding: 18px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.8);
-  background: rgba(255,255,255,0.8);
 }
 .site-description {
   font-size: 16px;
