@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffecd1;
+  background: #2e21ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2661,6 +2661,16 @@ embed {
   font-size: 40px;
   color: rgba(0,0,0,0.8);
   font-weight: bold;
+}
+.my-plan-block {
+  height: 32px;
+  margin-bottom: 0;
+}
+.my-plan-block span {
+  display: inline-block;
+  width: 80px;
+  background: #ffc0cb;
+  padding-left: 20px;
 }
 .headband {
   height: 0px;

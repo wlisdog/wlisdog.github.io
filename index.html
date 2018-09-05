@@ -323,8 +323,8 @@
       
         
           
-          本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的，所以就有了以下的想法 环境(vue)
-写一个准备渲染的死数据123456789101112131415161718data () &#123;    return &#123;        list: [ // 准备渲染的数据            &#123;                remainTi
+          本文是对类似于拼团，多个商品每个都有各自的倒计时，一开始接到接到这个需求也是头疼了一阵子，如果是在商品列表少的时候完全就可以写成死的，固定的变量，写几个定时器就ok了，但是这次数据是活的想了一下就有了以下的想法 环境(vue)
+写一个准备渲染的死数据123456789101112131415161718data () &#123;    return &#123;        list: [ // 准备渲染的数据            &#123;                remainT
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -531,6 +531,144 @@ npm install qs –save-dev
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2017/12/20/vue-wx3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yhl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yhl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/20/vue-wx3/" itemprop="url">开发微信公众号小技巧(全局分享及单页分享)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T10:06:59+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/20/vue-wx3/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(全局分享及单页分享)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读数量&#58; </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。
+1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&#123;    title: rbConst.rbTitle, // 分享标题    link: rbConst.rbWebUrl, // 分享链接，该链接域名或路径必须与当前页面对应
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/20/vue-wx3/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://loverwl.com/2017/11/12/vue-wx2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -550,7 +688,7 @@ npm install qs –save-dev
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/12/vue-wx2/" itemprop="url">开发微信公众号小技巧(vue-2)</a></h1>
+                <a class="post-title-link" href="/2017/11/12/vue-wx2/" itemprop="url">开发微信公众号小技巧(易调试环境)</a></h1>
         
 
         <div class="post-meta">
@@ -580,7 +718,7 @@ npm install qs –save-dev
 
           
           
-             <span id="/2017/11/12/vue-wx2/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(vue-2)">
+             <span id="/2017/11/12/vue-wx2/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(易调试环境)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -695,7 +833,7 @@ prod 生产
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/10/vue-wx/" itemprop="url">开发微信公众号小技巧(vue-1)</a></h1>
+                <a class="post-title-link" href="/2017/10/10/vue-wx/" itemprop="url">开发微信公众号小技巧(微信授权跳转)</a></h1>
         
 
         <div class="post-meta">
@@ -725,7 +863,7 @@ prod 生产
 
           
           
-             <span id="/2017/10/10/vue-wx/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(vue-1)">
+             <span id="/2017/10/10/vue-wx/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(微信授权跳转)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -855,7 +993,7 @@ prod 生产
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

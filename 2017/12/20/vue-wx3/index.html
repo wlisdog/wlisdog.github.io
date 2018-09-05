@@ -79,25 +79,20 @@
 
 
 
-<meta name="description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
+<meta name="description" content="全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。 1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&amp;#123;    title: rbConst.rbTitle, // 分享标题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="针对vue-cli axios请求跨域问题及qs用法">
-<meta property="og:url" content="http://loverwl.com/2018/02/03/axios-request/index.html">
+<meta property="og:title" content="开发微信公众号小技巧(全局分享及单页分享)">
+<meta property="og:url" content="http://loverwl.com/2017/12/20/vue-wx3/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
+<meta property="og:description" content="全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。 1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&amp;#123;    title: rbConst.rbTitle, // 分享标题">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115005643.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419114900776.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115052948.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115206143.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115351298.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115623648.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115950412.png">
-<meta property="og:updated_time" content="2018-09-04T07:31:34.508Z">
+<meta property="og:image" content="http://loverwl.com/2017/12/20/vue-wx3/20180905111920.gif">
+<meta property="og:image" content="http://loverwl.com/2017/12/20/vue-wx3/20180905112000.jpg">
+<meta property="og:updated_time" content="2018-09-05T03:56:09.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="针对vue-cli axios请求跨域问题及qs用法">
-<meta name="twitter:description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
-<meta name="twitter:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115005643.png">
+<meta name="twitter:title" content="开发微信公众号小技巧(全局分享及单页分享)">
+<meta name="twitter:description" content="全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。 1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&amp;#123;    title: rbConst.rbTitle, // 分享标题">
+<meta name="twitter:image" content="http://loverwl.com/2017/12/20/vue-wx3/20180905111920.gif">
 
 
 
@@ -127,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/2018/02/03/axios-request/"/>
+  <link rel="canonical" href="http://loverwl.com/2017/12/20/vue-wx3/"/>
 
 
 
 
 
-  <title>针对vue-cli axios请求跨域问题及qs用法 | Yhl</title>
+  <title>开发微信公众号小技巧(全局分享及单页分享) | Yhl</title>
   
 
 
@@ -249,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/02/03/axios-request/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2017/12/20/vue-wx3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -266,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">针对vue-cli axios请求跨域问题及qs用法</h1>
+          <h1 class="post-title" itemprop="name headline">开发微信公众号小技巧(全局分享及单页分享)</h1>
         
 
         <div class="post-meta">
@@ -278,8 +273,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T16:53:35+08:00">
-                2018-02-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T10:06:59+08:00">
+                2017-12-20
               </time>
             
 
@@ -296,7 +291,7 @@
 
           
           
-             <span id="/2018/02/03/axios-request/" class="leancloud_visitors" data-flag-title="针对vue-cli axios请求跨域问题及qs用法">
+             <span id="/2017/12/20/vue-wx3/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(全局分享及单页分享)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -327,23 +322,15 @@
       
 
       
-        <p>在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：</p>
-<p><img src="/2018/02/03/axios-request/20180419115005643.png" alt="kuayu"></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先找到config/index.js 的dev中的配置如下</p>
-<p><img src="/2018/02/03/axios-request/20180419114900776.png" alt="proxy"></p>
-<p>在main.js中将axios注入到vue中</p>
-<p><img src="/2018/02/03/axios-request/20180419115052948.png" alt="use"></p>
-<p>在页面中进行请求</p>
-<p><img src="/2018/02/03/axios-request/20180419115206143.png" alt="reuest"></p>
-<p>你会发现请求成功了 but</p>
-<p><img src="/2018/02/03/axios-request/20180419115351298.png" alt="100"></p>
-<p>err却是100</p>
-<p>qs: 查询字符串解析和字符串化库，增加了一些安全性</p>
-<p>npm install qs –save-dev</p>
-<p><img src="/2018/02/03/axios-request/20180419115623648.png" alt="qs"></p>
-<p>可以理解为qs 类似于JSON.stringify转换格式的一种方法</p>
-<p>这时候问题来了 我们在项目中会有好多组件，那么我每个组件中都去引入一个qs很麻烦 </p>
-<p>解决办法 我换了一种注入方式<br><img src="/2018/02/03/axios-request/20180419115950412.png" alt="qsuse"><br>将这个页面注入到vue中,这样在我们调用this.$http时 就可以免去引用qs 跟使用qs.stringify方法了</p>
+        <h2 id="全局分享"><a href="#全局分享" class="headerlink" title="全局分享"></a>全局分享</h2><p>全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样</span></span><br><span class="line">...wx.config</span><br><span class="line"><span class="comment">// 分享到朋友圈</span></span><br><span class="line">wx.onMenuShareTimeline(&#123;</span><br><span class="line">    title: rbConst.rbTitle, <span class="comment">// 分享标题</span></span><br><span class="line">    link: rbConst.rbWebUrl, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">    imgUrl: rbConst.rbLogoImg, <span class="comment">// 分享图标</span></span><br><span class="line">    success: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">    &#125;,</span><br><span class="line">    cancel: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="单页分享"><a href="#单页分享" class="headerlink" title="单页分享"></a>单页分享</h2><p>场景:<br>    优惠券页面          分享出去为优惠券页面<br>    当用户点击优惠券页面 再去分享会被全局分享覆盖<br>    其实这个分享的问题是在于 你页面的分享先加载了<br>    偶尔wxjsdk中的分享执行在你的created之后<br>    所以造成覆盖了分享</p>
+<p></p><p class="my-plan-block"><span>PlanA</span></p><br>全局分享就不要了, 给每个页面都写上分享<br>优点: <span style="color: red">能解决上述覆盖问题</span><br>缺点: 代码重复性较高(一些比较隐性的页面分享的都是首页)<p></p>
+<p></p><p class="my-plan-block"><span>PlanB</span></p><br>    监听wxjsdk的加载，在已经加载好时，调用单页面的分享方法<br>    优点: <span style="color: red">不需要每个页面调用分享</span><br>    缺点: 无<br><img src="/2017/12/20/vue-wx3/20180905111920.gif" alt="youxiu"><br>开玩笑的， 需要搭配vuex实现<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vuex安装啥的就不管了, 在你wx.ready的页面中写在wx.ready里</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'../store'</span></span><br><span class="line">wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 分享到朋友圈</span></span><br><span class="line">    wx.onMenuShareTimeline(&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;)</span><br><span class="line">    store.commit(<span class="string">'setShareLockInner'</span>, <span class="literal">true</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p></p>
+<p>vuex 赋值就不说了一抓一大把</p>
+<p>在你需要单独调用分享的页面中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    由于是推送页面，在本页面直接加载jssdk，可能会将原本的分享覆盖福袋的分享</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapActions, mapState &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">import</span> &#123; wxShare &#125; <span class="keyword">from</span> <span class="string">'tools/wxShare'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    watch: &#123;</span><br><span class="line">        shareLock (val, oldVal) &#123;</span><br><span class="line">            <span class="comment">// 监控分享控制锁的状态</span></span><br><span class="line">            <span class="keyword">if</span> (val) &#123;</span><br><span class="line">                <span class="keyword">this</span>.toShare()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        toShare () &#123;</span><br><span class="line">            <span class="comment">// 分享到朋友圈，朋友</span></span><br><span class="line">            wx.onMenuShareTimeline(&#123;</span><br><span class="line">                ...</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.shareLock) <span class="keyword">this</span>.toShare()</span><br><span class="line">    &#125;</span><br><span class="line">    computed: &#123;</span><br><span class="line">        ...mapState(&#123;</span><br><span class="line">            shareLock: <span class="function">(<span class="params">&#123;share&#125;</span>) =&gt;</span> share.shareLock</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样就ok了 分享的就是自己设定的了</p>
+<p><img src="/2017/12/20/vue-wx3/20180905112000.jpg" alt="qiao"></p>
 
       
     </div>
@@ -368,8 +355,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/20/vue-wx3/" rel="next" title="开发微信公众号小技巧(全局分享及单页分享)">
-                <i class="fa fa-chevron-left"></i> 开发微信公众号小技巧(全局分享及单页分享)
+              <a href="/2017/11/12/vue-wx2/" rel="next" title="开发微信公众号小技巧(易调试环境)">
+                <i class="fa fa-chevron-left"></i> 开发微信公众号小技巧(易调试环境)
               </a>
             
           </div>
@@ -378,8 +365,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/05/countdowns/" rel="prev" title="多个倒计时并行(拼团倒计时)">
-                多个倒计时并行(拼团倒计时) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/03/axios-request/" rel="prev" title="针对vue-cli axios请求跨域问题及qs用法">
+                针对vue-cli axios请求跨域问题及qs用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
