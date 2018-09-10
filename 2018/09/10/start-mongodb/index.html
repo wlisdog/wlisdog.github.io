@@ -79,25 +79,27 @@
 
 
 
-<meta name="description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
+<meta name="description" content="在linux搭建mongodb我的是CentOS 7.4系统的， 所以下载点击下载，跳转页面，自动下载，如果没有自动下载那么就—翻墙吧 然后再走一遍 然后压缩到你的服务器的某个文件夹下,修改文件夹名为mongodb/opt/mongodb // 我存放在opt下创建文件夹dbs 用来存放数据创建文件夹 logs - mongodb.log 用来存放记录 创建完如图 /opt/mongodb/bin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="针对vue-cli axios请求跨域问题及qs用法">
-<meta property="og:url" content="http://loverwl.com/2018/02/03/axios-request/index.html">
+<meta property="og:title" content="start-mongodb">
+<meta property="og:url" content="http://loverwl.com/2018/09/10/start-mongodb/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
+<meta property="og:description" content="在linux搭建mongodb我的是CentOS 7.4系统的， 所以下载点击下载，跳转页面，自动下载，如果没有自动下载那么就—翻墙吧 然后再走一遍 然后压缩到你的服务器的某个文件夹下,修改文件夹名为mongodb/opt/mongodb // 我存放在opt下创建文件夹dbs 用来存放数据创建文件夹 logs - mongodb.log 用来存放记录 创建完如图 /opt/mongodb/bin">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115005643.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419114900776.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115052948.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115206143.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115351298.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115623648.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115950412.png">
-<meta property="og:updated_time" content="2018-09-04T07:31:34.508Z">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910094217.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910101559.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910095123.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910093140.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910100620.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910100625.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910100632.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910095523.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910093223.jpg">
+<meta property="og:updated_time" content="2018-09-10T02:22:30.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="针对vue-cli axios请求跨域问题及qs用法">
-<meta name="twitter:description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
-<meta name="twitter:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115005643.png">
+<meta name="twitter:title" content="start-mongodb">
+<meta name="twitter:description" content="在linux搭建mongodb我的是CentOS 7.4系统的， 所以下载点击下载，跳转页面，自动下载，如果没有自动下载那么就—翻墙吧 然后再走一遍 然后压缩到你的服务器的某个文件夹下,修改文件夹名为mongodb/opt/mongodb // 我存放在opt下创建文件夹dbs 用来存放数据创建文件夹 logs - mongodb.log 用来存放记录 创建完如图 /opt/mongodb/bin">
+<meta name="twitter:image" content="http://loverwl.com/2018/09/10/start-mongodb/20180910094217.png">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/2018/02/03/axios-request/"/>
+  <link rel="canonical" href="http://loverwl.com/2018/09/10/start-mongodb/"/>
 
 
 
 
 
-  <title>针对vue-cli axios请求跨域问题及qs用法 | Yhl</title>
+  <title>start-mongodb | Yhl</title>
   
 
 
@@ -249,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/02/03/axios-request/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/09/10/start-mongodb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -266,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">针对vue-cli axios请求跨域问题及qs用法</h1>
+          <h1 class="post-title" itemprop="name headline">start-mongodb</h1>
         
 
         <div class="post-meta">
@@ -278,8 +280,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T16:53:35+08:00">
-                2018-02-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T09:30:50+08:00">
+                2018-09-10
               </time>
             
 
@@ -296,7 +298,7 @@
 
           
           
-             <span id="/2018/02/03/axios-request/" class="leancloud_visitors" data-flag-title="针对vue-cli axios请求跨域问题及qs用法">
+             <span id="/2018/09/10/start-mongodb/" class="leancloud_visitors" data-flag-title="start-mongodb">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -327,23 +329,17 @@
       
 
       
-        <p>在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：</p>
-<p><img src="/2018/02/03/axios-request/20180419115005643.png" alt="kuayu"></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先找到config/index.js 的dev中的配置如下</p>
-<p><img src="/2018/02/03/axios-request/20180419114900776.png" alt="proxy"></p>
-<p>在main.js中将axios注入到vue中</p>
-<p><img src="/2018/02/03/axios-request/20180419115052948.png" alt="use"></p>
-<p>在页面中进行请求</p>
-<p><img src="/2018/02/03/axios-request/20180419115206143.png" alt="reuest"></p>
-<p>你会发现请求成功了 but</p>
-<p><img src="/2018/02/03/axios-request/20180419115351298.png" alt="100"></p>
-<p>err却是100</p>
-<p>qs: 查询字符串解析和字符串化库，增加了一些安全性</p>
-<p>npm install qs –save-dev</p>
-<p><img src="/2018/02/03/axios-request/20180419115623648.png" alt="qs"></p>
-<p>可以理解为qs 类似于JSON.stringify转换格式的一种方法</p>
-<p>这时候问题来了 我们在项目中会有好多组件，那么我每个组件中都去引入一个qs很麻烦 </p>
-<p>解决办法 我换了一种注入方式<br><img src="/2018/02/03/axios-request/20180419115950412.png" alt="qsuse"><br>将这个页面注入到vue中,这样在我们调用this.$http时 就可以免去引用qs 跟使用qs.stringify方法了</p>
+        <h3 id="在linux搭建mongodb"><a href="#在linux搭建mongodb" class="headerlink" title="在linux搭建mongodb"></a>在linux搭建mongodb</h3><p>我的是CentOS 7.4系统的， 所以下载<br><img src="/2018/09/10/start-mongodb/20180910094217.png" alt="download"><br>点击下载，跳转页面，自动下载，如果没有自动下载那么就<br><img src="/2018/09/10/start-mongodb/20180910101559.jpg" alt="taoyan"><br>—翻墙吧 然后再走一遍</p>
+<p>然后压缩到你的服务器的某个文件夹下,修改文件夹名为mongodb<br>/opt/mongodb // 我存放在opt下<br>创建文件夹dbs 用来存放数据<br>创建文件夹 logs - mongodb.log 用来存放记录</p>
+<p><img src="/2018/09/10/start-mongodb/20180910095123.png" alt="directory"><br>创建完如图</p>
+<p>/opt/mongodb/bin<br>创建一个名为mongodb.conf的文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 设置数据文件的存放目录（根据实际的db文件夹的路径填写）  </span><br><span class="line">  dbpath = <span class="regexp">/opt/m</span>ongodb/dbs</span><br><span class="line"></span><br><span class="line"># 设置日志文件的存放目录及其日志文件名（根据实际的logs文件夹的路径填写）  </span><br><span class="line">  logpath = <span class="regexp">/opt/m</span>ongodb/logs/mongodb.log  </span><br><span class="line"></span><br><span class="line"># 设置端口号（默认的端口号是 27017）  </span><br><span class="line">  port = <span class="number">27017</span>  </span><br><span class="line"></span><br><span class="line"># 设置为以守护进程的方式运行，即在后台运行  </span><br><span class="line">  fork = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"># 身份验证</span><br><span class="line">  auth = <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>复制到mongodb.conf</p>
+<p>这样我们的环境就搭好了</p>
+<p>通过Xshell连接到服务器<br>/opt/mongodb/bin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd  /opt/mongodb/bin</span><br><span class="line">./mongod -f mongodb.conf</span><br></pre></td></tr></table></figure></p>
+<p>我擦嘞，失败了,搞它!<br><img src="/2018/09/10/start-mongodb/20180910093140.jpg" alt="huang"><br>错1<br><img src="/2018/09/10/start-mongodb/20180910100620.png" alt="number100"><br>这时候你去查看你dbs文件夹下绝对有一个mongodb.lock<br><img src="/2018/09/10/start-mongodb/20180910100625.png" alt="error100"><br>这样 给它删喽<br>然后再运行<br>会发现 还有错<br><img src="/2018/09/10/start-mongodb/20180910100632.png" alt="number48"><br>这时候把你logs目录下 除了mongodb.log以外都删了<br>然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill mongodb</span><br></pre></td></tr></table></figure></p>
+<p>继续运行<br><img src="/2018/09/10/start-mongodb/20180910095523.png" alt="success"><br>成功喽<br>如图所示俺们成功了成功图</p>
+<p>./mongo 就可以进入服务器了</p>
+<p>对于mongo中的一些操作在下文<br><img src="/2018/09/10/start-mongodb/20180910093223.jpg" alt="jinzhang"></p>
 
       
     </div>
@@ -368,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/20/vue-wx3/" rel="next" title="开发微信公众号小技巧(全局分享及单页分享)">
-                <i class="fa fa-chevron-left"></i> 开发微信公众号小技巧(全局分享及单页分享)
+              <a href="/2018/04/05/countdowns/" rel="next" title="多个倒计时并行(拼团倒计时)">
+                <i class="fa fa-chevron-left"></i> 多个倒计时并行(拼团倒计时)
               </a>
             
           </div>
@@ -378,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/05/countdowns/" rel="prev" title="多个倒计时并行(拼团倒计时)">
-                多个倒计时并行(拼团倒计时) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/10/operation-mongodb/" rel="prev" title="operation-mongodb">
+                operation-mongodb <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

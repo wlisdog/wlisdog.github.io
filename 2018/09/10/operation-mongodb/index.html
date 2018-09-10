@@ -79,25 +79,21 @@
 
 
 
-<meta name="description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
+<meta name="description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
 <meta property="og:type" content="article">
-<meta property="og:title" content="针对vue-cli axios请求跨域问题及qs用法">
-<meta property="og:url" content="http://loverwl.com/2018/02/03/axios-request/index.html">
+<meta property="og:title" content="operation-mongodb">
+<meta property="og:url" content="http://loverwl.com/2018/09/10/operation-mongodb/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
+<meta property="og:description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115005643.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419114900776.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115052948.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115206143.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115351298.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115623648.png">
-<meta property="og:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115950412.png">
-<meta property="og:updated_time" content="2018-09-04T07:31:34.508Z">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910102118.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910110117.png">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910102134.jpg">
+<meta property="og:updated_time" content="2018-09-10T03:05:31.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="针对vue-cli axios请求跨域问题及qs用法">
-<meta name="twitter:description" content="在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：  解决方案首先找到config/index.js 的dev中的配置如下  在main.js中将axios注入到vue中  在页面中进行请求  你会发现请求成功了 but  err却是100 qs: 查询字符串解析和字符串化库，增加了一些安全性 npm install qs –save-de">
-<meta name="twitter:image" content="http://loverwl.com/2018/02/03/axios-request/20180419115005643.png">
+<meta name="twitter:title" content="operation-mongodb">
+<meta name="twitter:description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
+<meta name="twitter:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910102118.jpg">
 
 
 
@@ -127,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/2018/02/03/axios-request/"/>
+  <link rel="canonical" href="http://loverwl.com/2018/09/10/operation-mongodb/"/>
 
 
 
 
 
-  <title>针对vue-cli axios请求跨域问题及qs用法 | Yhl</title>
+  <title>operation-mongodb | Yhl</title>
   
 
 
@@ -249,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/02/03/axios-request/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/09/10/operation-mongodb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -266,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">针对vue-cli axios请求跨域问题及qs用法</h1>
+          <h1 class="post-title" itemprop="name headline">operation-mongodb</h1>
         
 
         <div class="post-meta">
@@ -278,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T16:53:35+08:00">
-                2018-02-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T10:19:42+08:00">
+                2018-09-10
               </time>
             
 
@@ -296,7 +292,7 @@
 
           
           
-             <span id="/2018/02/03/axios-request/" class="leancloud_visitors" data-flag-title="针对vue-cli axios请求跨域问题及qs用法">
+             <span id="/2018/09/10/operation-mongodb/" class="leancloud_visitors" data-flag-title="operation-mongodb">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -327,23 +323,14 @@
       
 
       
-        <p>在使用vue-cli脚手架开发时搭配webpack，并使用axios进行请求时，有时可能遇到跨域问题如下图：</p>
-<p><img src="/2018/02/03/axios-request/20180419115005643.png" alt="kuayu"></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先找到config/index.js 的dev中的配置如下</p>
-<p><img src="/2018/02/03/axios-request/20180419114900776.png" alt="proxy"></p>
-<p>在main.js中将axios注入到vue中</p>
-<p><img src="/2018/02/03/axios-request/20180419115052948.png" alt="use"></p>
-<p>在页面中进行请求</p>
-<p><img src="/2018/02/03/axios-request/20180419115206143.png" alt="reuest"></p>
-<p>你会发现请求成功了 but</p>
-<p><img src="/2018/02/03/axios-request/20180419115351298.png" alt="100"></p>
-<p>err却是100</p>
-<p>qs: 查询字符串解析和字符串化库，增加了一些安全性</p>
-<p>npm install qs –save-dev</p>
-<p><img src="/2018/02/03/axios-request/20180419115623648.png" alt="qs"></p>
-<p>可以理解为qs 类似于JSON.stringify转换格式的一种方法</p>
-<p>这时候问题来了 我们在项目中会有好多组件，那么我每个组件中都去引入一个qs很麻烦 </p>
-<p>解决办法 我换了一种注入方式<br><img src="/2018/02/03/axios-request/20180419115950412.png" alt="qsuse"><br>将这个页面注入到vue中,这样在我们调用this.$http时 就可以免去引用qs 跟使用qs.stringify方法了</p>
+        <p>上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb</p>
+<h3 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h3><p>再顺一遍流程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/mongodb/bin // 你的路径</span><br><span class="line"></span><br><span class="line">// 当前目录 /opt/mongodb/bin</span><br><span class="line">./mongod -f mongodb.conf</span><br><span class="line">./mongo // 出现光标成功~</span><br></pre></td></tr></table></figure></p>
+<p>第一次用户进入默认用户,无视权限<br>我们要设置用户<br>use admin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  &#123;</span><br><span class="line">    user: &quot;userName&quot;,</span><br><span class="line">    pwd: &quot;123456&quot;,</span><br><span class="line">    roles: [ &#123; role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125; ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">role中的值</span><br><span class="line">    &lt;!--</span><br><span class="line">    Read：允许用户读取指定数据库</span><br><span class="line">    readWrite：允许用户读写指定数据库</span><br><span class="line">    dbAdmin：允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile</span><br><span class="line">    userAdmin：允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户</span><br><span class="line">    clusterAdmin：只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。</span><br><span class="line">    readAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读权限</span><br><span class="line">    readWriteAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读写权限</span><br><span class="line">    userAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限</span><br><span class="line">    dbAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。</span><br><span class="line">    root：只在admin数据库中可用。超级账号，超级权限 </span><br><span class="line">    --&gt;</span><br><span class="line"></span><br><span class="line">提示就成功了</span><br><span class="line">Successfully added user: &#123;</span><br><span class="line">    &quot;user&quot; : &quot;userName&quot;,</span><br><span class="line">    &quot;roles&quot; : [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;role&quot; : &quot;userAdminAnyDatabase&quot;,</span><br><span class="line">            &quot;db&quot; : &quot;admin&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###如何进入<br>db.auth(‘userName’,’pwd’)<br>返回1就是成功</p>
+<h3 id="如何退出"><a href="#如何退出" class="headerlink" title="如何退出"></a>如何退出</h3><p>db.shutdownServer()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">没权限会导致如下</span><br><span class="line">2018-09-10T10:47:24.394+0800 E QUERY    [js] Error: shutdownServer failed: &#123;</span><br><span class="line">	&quot;ok&quot; : 0,</span><br><span class="line">	&quot;errmsg&quot; : &quot;command shutdown requires authentication&quot;,</span><br><span class="line">	&quot;code&quot; : 13,</span><br><span class="line">	&quot;codeName&quot; : &quot;Unauthorized&quot;</span><br><span class="line">&#125; :</span><br><span class="line">_getErrorWithCode@src/mongo/shell/utils.js:25:13</span><br><span class="line">DB.prototype.shutdownServer@src/mongo/shell/db.js:453:1</span><br><span class="line">@(shell):1:1</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/09/10/operation-mongodb/20180910102118.jpg" alt="cahan"><br>给上边的账号添加个hoseManager的权限就ok</p>
+<h3 id="设置阿里云端口权限"><a href="#设置阿里云端口权限" class="headerlink" title="设置阿里云端口权限"></a>设置阿里云端口权限</h3><p>!(aliyu)[20180910105127.png]<br>ok</p>
+<h3 id="连接robo3t"><a href="#连接robo3t" class="headerlink" title="连接robo3t"></a>连接robo3t</h3><p>去官网下载robo3t<br>启动mongodb数据库<br><img src="/2018/09/10/operation-mongodb/20180910110117.png" alt="robo3t"><br>连接成功就可以去操作喽<br><img src="/2018/09/10/operation-mongodb/20180910102134.jpg" alt="over"></p>
 
       
     </div>
@@ -368,8 +355,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/20/vue-wx3/" rel="next" title="开发微信公众号小技巧(全局分享及单页分享)">
-                <i class="fa fa-chevron-left"></i> 开发微信公众号小技巧(全局分享及单页分享)
+              <a href="/2018/09/10/start-mongodb/" rel="next" title="start-mongodb">
+                <i class="fa fa-chevron-left"></i> start-mongodb
               </a>
             
           </div>
@@ -377,10 +364,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/05/countdowns/" rel="prev" title="多个倒计时并行(拼团倒计时)">
-                多个倒计时并行(拼团倒计时) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
