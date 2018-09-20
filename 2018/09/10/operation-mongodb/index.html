@@ -87,9 +87,10 @@
 <meta property="og:description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910102118.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910105127.png">
 <meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910110117.png">
 <meta property="og:image" content="http://loverwl.com/2018/09/10/operation-mongodb/20180910102134.jpg">
-<meta property="og:updated_time" content="2018-09-10T03:05:31.674Z">
+<meta property="og:updated_time" content="2018-09-20T02:18:59.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="operation-mongodb">
 <meta name="twitter:description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
@@ -329,7 +330,7 @@
 <p>###如何进入<br>db.auth(‘userName’,’pwd’)<br>返回1就是成功</p>
 <h3 id="如何退出"><a href="#如何退出" class="headerlink" title="如何退出"></a>如何退出</h3><p>db.shutdownServer()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">没权限会导致如下</span><br><span class="line">2018-09-10T10:47:24.394+0800 E QUERY    [js] Error: shutdownServer failed: &#123;</span><br><span class="line">	&quot;ok&quot; : 0,</span><br><span class="line">	&quot;errmsg&quot; : &quot;command shutdown requires authentication&quot;,</span><br><span class="line">	&quot;code&quot; : 13,</span><br><span class="line">	&quot;codeName&quot; : &quot;Unauthorized&quot;</span><br><span class="line">&#125; :</span><br><span class="line">_getErrorWithCode@src/mongo/shell/utils.js:25:13</span><br><span class="line">DB.prototype.shutdownServer@src/mongo/shell/db.js:453:1</span><br><span class="line">@(shell):1:1</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2018/09/10/operation-mongodb/20180910102118.jpg" alt="cahan"><br>给上边的账号添加个hoseManager的权限就ok</p>
-<h3 id="设置阿里云端口权限"><a href="#设置阿里云端口权限" class="headerlink" title="设置阿里云端口权限"></a>设置阿里云端口权限</h3><p>!(aliyu)[20180910105127.png]<br>ok</p>
+<h3 id="设置阿里云端口权限"><a href="#设置阿里云端口权限" class="headerlink" title="设置阿里云端口权限"></a>设置阿里云端口权限</h3><p><img src="/2018/09/10/operation-mongodb/20180910105127.png" alt="aliyu"><br>ok</p>
 <h3 id="连接robo3t"><a href="#连接robo3t" class="headerlink" title="连接robo3t"></a>连接robo3t</h3><p>去官网下载robo3t<br>启动mongodb数据库<br><img src="/2018/09/10/operation-mongodb/20180910110117.png" alt="robo3t"><br>连接成功就可以去操作喽<br><img src="/2018/09/10/operation-mongodb/20180910102134.jpg" alt="over"></p>
 
       
@@ -364,6 +365,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/19/observer-pattern/" rel="prev" title="观察者模式之谜">
+                观察者模式之谜 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -435,7 +440,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

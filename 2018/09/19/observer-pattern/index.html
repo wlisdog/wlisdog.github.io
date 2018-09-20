@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。 1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&amp;#123;    title: rbConst.rbTitle, // 分享标题">
+<meta name="description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式!(mianshi)[20180919112025.png]观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开发微信公众号小技巧(全局分享及单页分享)">
-<meta property="og:url" content="http://loverwl.com/2017/12/20/vue-wx3/index.html">
+<meta property="og:title" content="观察者模式之谜">
+<meta property="og:url" content="http://loverwl.com/2018/09/19/observer-pattern/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。 1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&amp;#123;    title: rbConst.rbTitle, // 分享标题">
+<meta property="og:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式!(mianshi)[20180919112025.png]观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://loverwl.com/2017/12/20/vue-wx3/20180905111920.gif">
-<meta property="og:image" content="http://loverwl.com/2017/12/20/vue-wx3/20180905112000.jpg">
-<meta property="og:updated_time" content="2018-09-05T03:56:09.466Z">
+<meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140419.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140345.jpg">
+<meta property="og:updated_time" content="2018-09-19T06:47:26.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开发微信公众号小技巧(全局分享及单页分享)">
-<meta name="twitter:description" content="全局分享全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。 1234567891011121314// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样...wx.config// 分享到朋友圈wx.onMenuShareTimeline(&amp;#123;    title: rbConst.rbTitle, // 分享标题">
-<meta name="twitter:image" content="http://loverwl.com/2017/12/20/vue-wx3/20180905111920.gif">
+<meta name="twitter:title" content="观察者模式之谜">
+<meta name="twitter:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式!(mianshi)[20180919112025.png]观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就">
+<meta name="twitter:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140419.jpg">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/2017/12/20/vue-wx3/"/>
+  <link rel="canonical" href="http://loverwl.com/2018/09/19/observer-pattern/"/>
 
 
 
 
 
-  <title>开发微信公众号小技巧(全局分享及单页分享) | Yhl</title>
+  <title>观察者模式之谜 | Yhl</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2017/12/20/vue-wx3/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/09/19/observer-pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -261,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">开发微信公众号小技巧(全局分享及单页分享)</h1>
+          <h1 class="post-title" itemprop="name headline">观察者模式之谜</h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T10:06:59+08:00">
-                2017-12-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-19T10:40:54+08:00">
+                2018-09-19
               </time>
             
 
@@ -291,7 +291,7 @@
 
           
           
-             <span id="/2017/12/20/vue-wx3/" class="leancloud_visitors" data-flag-title="开发微信公众号小技巧(全局分享及单页分享)">
+             <span id="/2018/09/19/observer-pattern/" class="leancloud_visitors" data-flag-title="观察者模式之谜">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -322,15 +322,26 @@
       
 
       
-        <h2 id="全局分享"><a href="#全局分享" class="headerlink" title="全局分享"></a>全局分享</h2><p>全局分享: 在wx.ready中写进分享,就不用一个页面一个页面写了, 但是分享的各个参数都是固定的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config过程就不说了百度一大堆，就拿朋友圈举例了，分享给朋友一样</span></span><br><span class="line">...wx.config</span><br><span class="line"><span class="comment">// 分享到朋友圈</span></span><br><span class="line">wx.onMenuShareTimeline(&#123;</span><br><span class="line">    title: rbConst.rbTitle, <span class="comment">// 分享标题</span></span><br><span class="line">    link: rbConst.rbWebUrl, <span class="comment">// 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span></span><br><span class="line">    imgUrl: rbConst.rbLogoImg, <span class="comment">// 分享图标</span></span><br><span class="line">    success: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 用户确认分享后执行的回调函数</span></span><br><span class="line">    &#125;,</span><br><span class="line">    cancel: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 用户取消分享后执行的回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="单页分享"><a href="#单页分享" class="headerlink" title="单页分享"></a>单页分享</h2><p>场景:<br>    优惠券页面          分享出去为优惠券页面<br>    当用户点击优惠券页面 再去分享会被全局分享覆盖<br>    其实这个分享的问题是在于 你页面的分享先加载了<br>    偶尔wxjsdk中的分享执行在你的created之后<br>    所以造成覆盖了分享</p>
-<p></p><p class="my-plan-block"><span>PlanA</span></p><br>全局分享就不要了, 给每个页面都写上分享<br>优点: <span style="color: red">能解决上述覆盖问题</span><br>缺点: 代码重复性较高(一些比较隐性的页面分享的都是首页)<p></p>
-<p></p><p class="my-plan-block"><span>PlanB</span></p><br>    监听wxjsdk的加载，在已经加载好时，调用单页面的分享方法<br>    优点: <span style="color: red">不需要每个页面调用分享</span><br>    缺点: 无<br><img src="/2017/12/20/vue-wx3/20180905111920.gif" alt="youxiu"><br>开玩笑的， 需要搭配vuex实现<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vuex安装啥的就不管了, 在你wx.ready的页面中写在wx.ready里</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'../store'</span></span><br><span class="line">wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 分享到朋友圈</span></span><br><span class="line">    wx.onMenuShareTimeline(&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;)</span><br><span class="line">    store.commit(<span class="string">'setShareLockInner'</span>, <span class="literal">true</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p></p>
-<p>vuex 赋值就不说了一抓一大把</p>
-<p>在你需要单独调用分享的页面中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    由于是推送页面，在本页面直接加载jssdk，可能会将原本的分享覆盖福袋的分享</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapActions, mapState &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">import</span> &#123; wxShare &#125; <span class="keyword">from</span> <span class="string">'tools/wxShare'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    watch: &#123;</span><br><span class="line">        shareLock (val, oldVal) &#123;</span><br><span class="line">            <span class="comment">// 监控分享控制锁的状态</span></span><br><span class="line">            <span class="keyword">if</span> (val) &#123;</span><br><span class="line">                <span class="keyword">this</span>.toShare()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        toShare () &#123;</span><br><span class="line">            <span class="comment">// 分享到朋友圈，朋友</span></span><br><span class="line">            wx.onMenuShareTimeline(&#123;</span><br><span class="line">                ...</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.shareLock) <span class="keyword">this</span>.toShare()</span><br><span class="line">    &#125;</span><br><span class="line">    computed: &#123;</span><br><span class="line">        ...mapState(&#123;</span><br><span class="line">            shareLock: <span class="function">(<span class="params">&#123;share&#125;</span>) =&gt;</span> share.shareLock</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样就ok了 分享的就是自己设定的了</p>
-<p><img src="/2017/12/20/vue-wx3/20180905112000.jpg" alt="qiao"></p>
+        <p>小序：<br>    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册<a href="https://juejin.im/book/5a36661851882538e2259c0f/section/5a37bbb35188257d167a4d64" target="_blank" rel="noopener">炒鸡nice!</a>推荐哦~这个下篇再分享心得,这篇我们来说观察者模式</p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>!(mianshi)[20180919112025.png]<br>观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。</p>
+<p>举个栗子:<br>当你加入一家大型公司，公司将你的照片及信息发布给所有的员工。<br>这就是一个很简单的例子<br>发布订阅模式的流程如下：</p>
+<ol>
+<li>确定谁是发布者(大型公司)。</li>
+<li>然后给发布者添加一个缓存列表，用于存放回调函数来通知订阅者。</li>
+<li>发布消息，发布者需要遍历这个缓存列表，依次触发里面存放的订阅者回调函数。</li>
+<li>退订（员工屏蔽新员工信息，就可以取消掉)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;; // 发布者</span><br><span class="line">obj.cacheList = []; // 缓存队列</span><br><span class="line">obj.listen = function (key, fn) &#123; // 添加新员工</span><br><span class="line">    if (!this.cacheList[key]) &#123;</span><br><span class="line">        this.cacheList[key] = []</span><br><span class="line">    &#125;</span><br><span class="line">    this.cacheList[key].push(fn)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.message = function () &#123; // 发布消息</span><br><span class="line">	var key = Array.prototype.shift.call(arguments); //取出消息类型名称</span><br><span class="line">	var fns = this.list[key];		//取出消息对应回调函数集合</span><br><span class="line">	if(!fns || fns.length == 0)&#123;		//如果没有订阅这个消息，直接返回</span><br><span class="line">		console.log(key + &quot;没有新员工入职&quot;);</span><br><span class="line">		return ;</span><br><span class="line">	&#125;</span><br><span class="line">	for(var i = 0, fn; fn = fns[i++]; )&#123;</span><br><span class="line">		fn.apply(this,arguments);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.listen(&quot;张三&quot;,function(age)&#123;	//订阅者</span><br><span class="line">	console.log(&quot;年龄 ：&quot; + age + &apos;岁&apos;);</span><br><span class="line">&#125;)</span><br><span class="line">obj.message(&quot;张三&quot;, 25);</span><br><span class="line">obj.message(&quot;李四&quot;, 30);</span><br></pre></td></tr></table></figure>
+<p>还有一种通过Object.defineProperty来实现<br><img src="/2018/09/19/observer-pattern/20180919140419.jpg" alt="zhe"></p>
+<h2 id="官方定义"><a href="#官方定义" class="headerlink" title="官方定义"></a>官方定义</h2><p>Object.defineProperty:<br>方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>Object.defineProperty(obj,prop,descriptor)</p>
+<ul>
+<li>obj: 需要定义属性的对象。</li>
+<li>prop: 需定义或修改的属性的名字。</li>
+<li>descriptor: 将被定义或修改的属性的描述符。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 创建对象</span><br><span class="line">var obj = &#123;</span><br><span class="line">    age: 1</span><br><span class="line">&#125;</span><br><span class="line">// 定义值改变时的处理函数</span><br><span class="line">function observer(oldVal, newVal) &#123;</span><br><span class="line">    // 其他处理逻辑...</span><br><span class="line">    console.log(&apos;name属性的值从 &apos;+ oldVal +&apos; 改变为 &apos; + newVal);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 定义name属性及其set和get方法</span><br><span class="line">Object.defineProperty(obj, &apos;name&apos;, &#123;</span><br><span class="line">    configurable: true, // 属性是否可以被修改或者删除，默认 false</span><br><span class="line">    enumerable: true, // 属性是否可枚举，默认 false。</span><br><span class="line">    get: function() &#123; // 获取属性的方法。</span><br><span class="line">        return name;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(val) &#123; // 设置属性的方法。</span><br><span class="line">        //调用处理函数</span><br><span class="line">        observer(name, val)</span><br><span class="line">        name = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj.name = &apos;Martin&apos;;</span><br><span class="line">obj.name = &apos;Lucas&apos;;</span><br><span class="line">console.log(&apos;obj:&apos;, obj)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/19/observer-pattern/20180919140345.jpg" alt="end"></p>
 
       
     </div>
@@ -355,8 +366,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/12/vue-wx2/" rel="next" title="开发微信公众号小技巧(易调试环境)">
-                <i class="fa fa-chevron-left"></i> 开发微信公众号小技巧(易调试环境)
+              <a href="/2018/09/10/operation-mongodb/" rel="next" title="operation-mongodb">
+                <i class="fa fa-chevron-left"></i> operation-mongodb
               </a>
             
           </div>
@@ -364,10 +375,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/03/axios-request/" rel="prev" title="针对vue-cli axios请求跨域问题及qs用法">
-                针对vue-cli axios请求跨域问题及qs用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
