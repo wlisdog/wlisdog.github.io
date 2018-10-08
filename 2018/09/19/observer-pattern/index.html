@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式!(mianshi)[20180919112025.png]观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就">
+<meta name="description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。 举个栗子:当你加入一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="观察者模式之谜">
 <meta property="og:url" content="http://loverwl.com/2018/09/19/observer-pattern/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式!(mianshi)[20180919112025.png]观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就">
+<meta property="og:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。 举个栗子:当你加入一">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919112025.png">
 <meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140419.jpg">
 <meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140345.jpg">
-<meta property="og:updated_time" content="2018-09-19T06:47:26.523Z">
+<meta property="og:updated_time" content="2018-09-20T02:30:42.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="观察者模式之谜">
-<meta name="twitter:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式!(mianshi)[20180919112025.png]观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就">
-<meta name="twitter:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140419.jpg">
+<meta name="twitter:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。 举个栗子:当你加入一">
+<meta name="twitter:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919112025.png">
 
 
 
@@ -323,7 +324,7 @@
 
       
         <p>小序：<br>    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册<a href="https://juejin.im/book/5a36661851882538e2259c0f/section/5a37bbb35188257d167a4d64" target="_blank" rel="noopener">炒鸡nice!</a>推荐哦~这个下篇再分享心得,这篇我们来说观察者模式</p>
-<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>!(mianshi)[20180919112025.png]<br>观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。</p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p><img src="/2018/09/19/observer-pattern/20180919112025.png" alt="mianshi"><br>观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。</p>
 <p>举个栗子:<br>当你加入一家大型公司，公司将你的照片及信息发布给所有的员工。<br>这就是一个很简单的例子<br>发布订阅模式的流程如下：</p>
 <ol>
 <li>确定谁是发布者(大型公司)。</li>
