@@ -382,7 +382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/09/10/operation-mongodb/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/07/23/system-mongodb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -401,7 +401,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/10/operation-mongodb/" itemprop="url">operation-mongodb</a></h1>
+                <a class="post-title-link" href="/2018/07/23/system-mongodb/" itemprop="url">开机自启mongodb</a></h1>
         
 
         <div class="post-meta">
@@ -413,8 +413,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T10:19:42+08:00">
-                2018-09-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-23T11:30:12+08:00">
+                2018-07-23
               </time>
             
 
@@ -431,7 +431,7 @@
 
           
           
-             <span id="/2018/09/10/operation-mongodb/" class="leancloud_visitors" data-flag-title="operation-mongodb">
+             <span id="/2018/07/23/system-mongodb/" class="leancloud_visitors" data-flag-title="开机自启mongodb">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -464,13 +464,11 @@
       
         
           
-          上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb
-整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~
-第一次用户进入默认用户,无视权限我们要设置用户use admin12345678910111213141516171819202122232425262728293031db.createUser(  
+          如何将mongodb数据库设置开机自启使用工具连接数据库在/lib/systemd/system/下新建文件mongodb.service12345678910111213141516[Unit] Description=mongodb After=network.target remote-fs.target nss-lookup.target [Service]Type=forkingExecStart=你的路径/mongodb/bin/mongod --config/usr/context
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/10/operation-mongodb/#more" rel="contents">
+            <a class="btn" href="/2018/07/23/system-mongodb/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -521,7 +519,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/09/10/start-mongodb/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/07/20/operation-mongodb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -540,7 +538,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/10/start-mongodb/" itemprop="url">start-mongodb</a></h1>
+                <a class="post-title-link" href="/2018/07/20/operation-mongodb/" itemprop="url">operation-mongodb</a></h1>
         
 
         <div class="post-meta">
@@ -552,8 +550,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T09:30:50+08:00">
-                2018-09-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T10:19:42+08:00">
+                2018-07-20
               </time>
             
 
@@ -570,7 +568,146 @@
 
           
           
-             <span id="/2018/09/10/start-mongodb/" class="leancloud_visitors" data-flag-title="start-mongodb">
+             <span id="/2018/07/20/operation-mongodb/" class="leancloud_visitors" data-flag-title="operation-mongodb">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读数量&#58; </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb
+整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~
+第一次用户进入默认用户,无视权限我们要设置用户use admin12345678910111213141516171819202122232425262728293031db.createUser(  
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/20/operation-mongodb/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/07/10/start-mongodb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yhl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yhl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/10/start-mongodb/" itemprop="url">start-mongodb</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T09:30:50+08:00">
+                2018-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/10/start-mongodb/" class="leancloud_visitors" data-flag-title="start-mongodb">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -610,7 +747,7 @@
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/10/start-mongodb/#more" rel="contents">
+            <a class="btn" href="/2018/07/10/start-mongodb/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -901,6 +1038,153 @@ npm install qs –save-dev
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/03/axios-request/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/01/05/all-round/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yhl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yhl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/05/all-round/" itemprop="url">全面屏时代-移动端</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T10:54:28+08:00">
+                2018-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/05/all-round/" class="leancloud_visitors" data-flag-title="全面屏时代-移动端">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读数量&#58; </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          小序由小米mix首发，紧接着全面屏时代来临，本人是米粉入手小米mix2，用户体验贼拉好，渐渐的全面屏手机漫步市场… (跑题了)在做公众号时，用全民屏手机发现了一个问题，当时定位问题就花费了三天时间，各种调试，最后终于定位问题，并解决。过程如下:
+问题解析在移动端时点击input框，调起键盘弹出,此时！！！出问题了使用chrome调试注意观察可视窗口的大小还未点击时
+唤起输入法软键盘
+放开软键盘
+放开后可视窗变大， 造成的问题
+
+下拉到底分页阻塞无法运行
+弹出框的位置
+整体页面定位错位
+
+解决问题
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/05/all-round/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1366,6 +1650,10 @@ prod 生产
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1413,7 +1701,7 @@ prod 生产
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
