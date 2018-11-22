@@ -79,21 +79,27 @@
 
 
 
-<meta name="description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。 举个栗子:当你加入一">
+<meta name="description" content="小序第一次接触云开发是在掘金开发者小程序大会上，好像是在那天宣布的云开发公测阶段，当时就特别感兴趣，但是懒癌烦了，一直到今天才去学习云开发，今天填的是导入的坑。 https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/import.html文档在此 云函数中之支持JSON,CSV两种格式我准备导入的格式为JSO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="观察者模式之谜">
-<meta property="og:url" content="http://loverwl.com/2018/09/19/observer-pattern/index.html">
+<meta property="og:title" content="小程序云开发-导入(填坑)">
+<meta property="og:url" content="http://loverwl.com/2018/11/22/mini-cloud-dr/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。 举个栗子:当你加入一">
+<meta property="og:description" content="小序第一次接触云开发是在掘金开发者小程序大会上，好像是在那天宣布的云开发公测阶段，当时就特别感兴趣，但是懒癌烦了，一直到今天才去学习云开发，今天填的是导入的坑。 https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/import.html文档在此 云函数中之支持JSON,CSV两种格式我准备导入的格式为JSO">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919112025.png">
-<meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140419.jpg">
-<meta property="og:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919140345.jpg">
-<meta property="og:updated_time" content="2018-11-15T08:22:48.770Z">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122145635.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122143953.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122142411a.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122142527a.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122142634b.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122142642b.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122142828c.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122142753c.png">
+<meta property="og:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122143924.jpg">
+<meta property="og:updated_time" content="2018-11-22T07:09:05.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="观察者模式之谜">
-<meta name="twitter:description" content="小序：    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册炒鸡nice!推荐哦~这个下篇再分享心得,这篇我们来说观察者模式 观察者模式观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。 举个栗子:当你加入一">
-<meta name="twitter:image" content="http://loverwl.com/2018/09/19/observer-pattern/20180919112025.png">
+<meta name="twitter:title" content="小程序云开发-导入(填坑)">
+<meta name="twitter:description" content="小序第一次接触云开发是在掘金开发者小程序大会上，好像是在那天宣布的云开发公测阶段，当时就特别感兴趣，但是懒癌烦了，一直到今天才去学习云开发，今天填的是导入的坑。 https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/import.html文档在此 云函数中之支持JSON,CSV两种格式我准备导入的格式为JSO">
+<meta name="twitter:image" content="http://loverwl.com/2018/11/22/mini-cloud-dr/20181122145635.png">
 
 
 
@@ -123,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/2018/09/19/observer-pattern/"/>
+  <link rel="canonical" href="http://loverwl.com/2018/11/22/mini-cloud-dr/"/>
 
 
 
 
 
-  <title>观察者模式之谜 | Yhl</title>
+  <title>小程序云开发-导入(填坑) | Yhl</title>
   
 
 
@@ -245,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/09/19/observer-pattern/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/11/22/mini-cloud-dr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -262,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">观察者模式之谜</h1>
+          <h1 class="post-title" itemprop="name headline">小程序云开发-导入(填坑)</h1>
         
 
         <div class="post-meta">
@@ -274,8 +280,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-19T10:40:54+08:00">
-                2018-09-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-22T14:38:27+08:00">
+                2018-11-22
               </time>
             
 
@@ -292,7 +298,7 @@
 
           
           
-             <span id="/2018/09/19/observer-pattern/" class="leancloud_visitors" data-flag-title="观察者模式之谜">
+             <span id="/2018/11/22/mini-cloud-dr/" class="leancloud_visitors" data-flag-title="小程序云开发-导入(填坑)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -323,26 +329,25 @@
       
 
       
-        <p>小序：<br>    经过前几天的面试，发现自己一直停留在应用层，对底层的一些原理总是云里雾里，也没有笼统的去透一遍,发现一本掘金小册<a href="https://juejin.im/book/5a36661851882538e2259c0f/section/5a37bbb35188257d167a4d64" target="_blank" rel="noopener">炒鸡nice!</a>推荐哦~这个下篇再分享心得,这篇我们来说观察者模式</p>
-<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p><img src="/2018/09/19/observer-pattern/20180919112025.png" alt="mianshi"><br>观察者模式是定义对象间一种一对多的依赖关系,当一个对象发生改变时，通知所有依赖于它的对象，举个例子在你使用原生js为dom绑定事件时，你就已经使用了观察者模式，无意间就能用到。</p>
-<p>举个栗子:<br>当你加入一家大型公司，公司将你的照片及信息发布给所有的员工。<br>这就是一个很简单的例子<br>发布订阅模式的流程如下：</p>
-<ol>
-<li>确定谁是发布者(大型公司)。</li>
-<li>然后给发布者添加一个缓存列表，用于存放回调函数来通知订阅者。</li>
-<li>发布消息，发布者需要遍历这个缓存列表，依次触发里面存放的订阅者回调函数。</li>
-<li>退订（员工屏蔽新员工信息，就可以取消掉)</li>
+        <h2 id="小序"><a href="#小序" class="headerlink" title="小序"></a>小序</h2><p>第一次接触云开发是在掘金开发者小程序大会上，好像是在那天宣布的云开发公测阶段，当时就特别感兴趣，但是懒癌烦了，一直到今天才去学习云开发，今天填的是导入的坑。</p>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/import.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/import.html</a>文档在此</p>
+<p>云函数中之支持JSON,CSV两种格式<br>我准备导入的格式为JSON, 一切都以<br><img src="/2018/11/22/mini-cloud-dr/20181122145635.png" alt="bz"><br>为准则，认认真真写代码，消消停停写注释<br>果不其然<br><img src="/2018/11/22/mini-cloud-dr/20181122143953.jpg" alt="ltz"></p>
+<p>问题三连</p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122142411a.png" alt="a"></p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122142527a.png" alt="a"></p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122142634b.png" alt="b"></p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122142642b.png" alt="b"></p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122142828c.png" alt="c"></p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122142753c.png" alt="c"></p>
+<p>那么长的json！！！</p>
+<h2 id="类似问题解决思路"><a href="#类似问题解决思路" class="headerlink" title="类似问题解决思路"></a>类似问题解决思路</h2><ol>
+<li>先查看导入了多少数据</li>
+<li>在导入成功的数据的后一个数据，一般是问题的原因</li>
+<li>再去看一眼数据库中导入的报错，结合数据代码,查出问题</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;; <span class="comment">// 发布者</span></span><br><span class="line">obj.cacheList = []; <span class="comment">// 缓存队列</span></span><br><span class="line">obj.listen = <span class="function"><span class="keyword">function</span> (<span class="params">key, fn</span>) </span>&#123; <span class="comment">// 添加新员工</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.cacheList[key]) &#123;</span><br><span class="line">        <span class="keyword">this</span>.cacheList[key] = []</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.cacheList[key].push(fn)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.message = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 发布消息</span></span><br><span class="line">	<span class="keyword">var</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>); <span class="comment">//取出消息类型名称</span></span><br><span class="line">	<span class="keyword">var</span> fns = <span class="keyword">this</span>.list[key];		<span class="comment">//取出消息对应回调函数集合</span></span><br><span class="line">	<span class="keyword">if</span>(!fns || fns.length == <span class="number">0</span>)&#123;		<span class="comment">//如果没有订阅这个消息，直接返回</span></span><br><span class="line">		<span class="built_in">console</span>.log(key + <span class="string">"没有新员工入职"</span>);</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, fn; fn = fns[i++]; )&#123;</span><br><span class="line">		fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.listen(<span class="string">"张三"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">age</span>)</span>&#123;	<span class="comment">//订阅者</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"年龄 ："</span> + age + <span class="string">'岁'</span>);</span><br><span class="line">&#125;)</span><br><span class="line">obj.message(<span class="string">"张三"</span>, <span class="number">25</span>);</span><br><span class="line">obj.message(<span class="string">"李四"</span>, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
-<p>还有一种通过Object.defineProperty来实现<br><img src="/2018/09/19/observer-pattern/20180919140419.jpg" alt="zhe"></p>
-<h2 id="官方定义"><a href="#官方定义" class="headerlink" title="官方定义"></a>官方定义</h2><p>Object.defineProperty:<br>方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>Object.defineProperty(obj,prop,descriptor)</p>
-<ul>
-<li>obj: 需要定义属性的对象。</li>
-<li>prop: 需定义或修改的属性的名字。</li>
-<li>descriptor: 将被定义或修改的属性的描述符。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 创建对象</span><br><span class="line">var obj = &#123;</span><br><span class="line">    age: 1</span><br><span class="line">&#125;</span><br><span class="line">// 定义值改变时的处理函数</span><br><span class="line">function observer(oldVal, newVal) &#123;</span><br><span class="line">    // 其他处理逻辑...</span><br><span class="line">    console.log(&apos;name属性的值从 &apos;+ oldVal +&apos; 改变为 &apos; + newVal);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 定义name属性及其set和get方法</span><br><span class="line">Object.defineProperty(obj, &apos;name&apos;, &#123;</span><br><span class="line">    configurable: true, // 属性是否可以被修改或者删除，默认 false</span><br><span class="line">    enumerable: true, // 属性是否可枚举，默认 false。</span><br><span class="line">    get: function() &#123; // 获取属性的方法。</span><br><span class="line">        return name;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: function(val) &#123; // 设置属性的方法。</span><br><span class="line">        //调用处理函数</span><br><span class="line">        observer(name, val)</span><br><span class="line">        name = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj.name = &apos;Martin&apos;;</span><br><span class="line">obj.name = &apos;Lucas&apos;;</span><br><span class="line">console.log(&apos;obj:&apos;, obj)</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/09/19/observer-pattern/20180919140345.jpg" alt="end"></p>
+<p>连踩仨坑，成功导入数据库</p>
+<p>云函数真香!</p>
+<p><img src="/2018/11/22/mini-cloud-dr/20181122143924.jpg" alt="dt"></p>
 
       
     </div>
@@ -367,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/23/system-mongodb/" rel="next" title="开机自启mongodb">
-                <i class="fa fa-chevron-left"></i> 开机自启mongodb
+              <a href="/2018/11/16/areater-select/" rel="next" title="框选效果">
+                <i class="fa fa-chevron-left"></i> 框选效果
               </a>
             
           </div>
@@ -376,10 +381,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/16/areater-select/" rel="prev" title="框选效果">
-                框选效果 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
