@@ -79,22 +79,20 @@
 
 
 
-<meta name="description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
+<meta name="description" content="小序第一次接触hapi这个框架是在掘金小册中看到了叶盛飞老师的基于hapi的Node.js小程序后端开发实践指南 对hapi产生了浓厚的兴趣, 先简单介绍一下 hapi.js 用于构建应用程序和服务的丰富框架hapi使开发人员能够专注于编写可重用的应用程序逻辑，而不是花时间构建基础设施。hapi 是一个用来构建基于 Node.js 的应用和服务的富框架，能够帮助我们把关注重点放在高可用的应用业务逻">
 <meta property="og:type" content="article">
-<meta property="og:title" content="operation-mongodb">
-<meta property="og:url" content="http://loverwl.com/2018/07/20/operation-mongodb/index.html">
+<meta property="og:title" content="Hapi-身份验证">
+<meta property="og:url" content="http://loverwl.com/2018/12/13/hapi-authorization/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
+<meta property="og:description" content="小序第一次接触hapi这个框架是在掘金小册中看到了叶盛飞老师的基于hapi的Node.js小程序后端开发实践指南 对hapi产生了浓厚的兴趣, 先简单介绍一下 hapi.js 用于构建应用程序和服务的丰富框架hapi使开发人员能够专注于编写可重用的应用程序逻辑，而不是花时间构建基础设施。hapi 是一个用来构建基于 Node.js 的应用和服务的富框架，能够帮助我们把关注重点放在高可用的应用业务逻">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://loverwl.com/2018/07/20/operation-mongodb/20180910102118.jpg">
-<meta property="og:image" content="http://loverwl.com/2018/07/20/operation-mongodb/20180910105127.png">
-<meta property="og:image" content="http://loverwl.com/2018/07/20/operation-mongodb/20181115151039.png">
-<meta property="og:image" content="http://loverwl.com/2018/07/20/operation-mongodb/20180910102134.jpg">
-<meta property="og:updated_time" content="2018-11-15T07:18:17.163Z">
+<meta property="og:image" content="http://loverwl.com/2018/12/13/hapi-authorization/20181213101517.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/12/13/hapi-authorization/20181213101343.jpg">
+<meta property="og:updated_time" content="2018-12-13T09:39:25.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="operation-mongodb">
-<meta name="twitter:description" content="上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb 整体流程再顺一遍流程12345cd /opt/mongodb/bin // 你的路径// 当前目录 /opt/mongodb/bin./mongod -f mongodb.conf./mongo // 出现光标成功~ 第一次用户进入默认用户,无视权限我们要设置用户use admin1234567891011121314">
-<meta name="twitter:image" content="http://loverwl.com/2018/07/20/operation-mongodb/20180910102118.jpg">
+<meta name="twitter:title" content="Hapi-身份验证">
+<meta name="twitter:description" content="小序第一次接触hapi这个框架是在掘金小册中看到了叶盛飞老师的基于hapi的Node.js小程序后端开发实践指南 对hapi产生了浓厚的兴趣, 先简单介绍一下 hapi.js 用于构建应用程序和服务的丰富框架hapi使开发人员能够专注于编写可重用的应用程序逻辑，而不是花时间构建基础设施。hapi 是一个用来构建基于 Node.js 的应用和服务的富框架，能够帮助我们把关注重点放在高可用的应用业务逻">
+<meta name="twitter:image" content="http://loverwl.com/2018/12/13/hapi-authorization/20181213101517.jpg">
 
 
 
@@ -124,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://loverwl.com/2018/07/20/operation-mongodb/"/>
+  <link rel="canonical" href="http://loverwl.com/2018/12/13/hapi-authorization/"/>
 
 
 
 
 
-  <title>operation-mongodb | Yhl</title>
+  <title>Hapi-身份验证 | Yhl</title>
   
 
 
@@ -246,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/07/20/operation-mongodb/">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/12/13/hapi-authorization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yhl">
@@ -263,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">operation-mongodb</h1>
+          <h1 class="post-title" itemprop="name headline">Hapi-身份验证</h1>
         
 
         <div class="post-meta">
@@ -275,8 +273,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T10:19:42+08:00">
-                2018-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-13T16:57:48+08:00">
+                2018-12-13
               </time>
             
 
@@ -293,7 +291,7 @@
 
           
           
-             <span id="/2018/07/20/operation-mongodb/" class="leancloud_visitors" data-flag-title="operation-mongodb">
+             <span id="/2018/12/13/hapi-authorization/" class="leancloud_visitors" data-flag-title="Hapi-身份验证">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -324,14 +322,43 @@
       
 
       
-        <p>上回书说到，我们的mongodb的环境已经配置完毕，这篇我们来玩弄mongdb</p>
-<h3 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h3><p>再顺一遍流程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/mongodb/bin // 你的路径</span><br><span class="line"></span><br><span class="line">// 当前目录 /opt/mongodb/bin</span><br><span class="line">./mongod -f mongodb.conf</span><br><span class="line">./mongo // 出现光标成功~</span><br></pre></td></tr></table></figure></p>
-<p>第一次用户进入默认用户,无视权限<br>我们要设置用户<br>use admin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  &#123;</span><br><span class="line">    user: &quot;userName&quot;,</span><br><span class="line">    pwd: &quot;123456&quot;,</span><br><span class="line">    roles: [ &#123; role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125; ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">role中的值</span><br><span class="line">    &lt;!--</span><br><span class="line">    Read：允许用户读取指定数据库</span><br><span class="line">    readWrite：允许用户读写指定数据库</span><br><span class="line">    dbAdmin：允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile</span><br><span class="line">    userAdmin：允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户</span><br><span class="line">    clusterAdmin：只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。</span><br><span class="line">    readAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读权限</span><br><span class="line">    readWriteAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读写权限</span><br><span class="line">    userAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限</span><br><span class="line">    dbAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。</span><br><span class="line">    root：只在admin数据库中可用。超级账号，超级权限 </span><br><span class="line">    --&gt;</span><br><span class="line"></span><br><span class="line">提示就成功了</span><br><span class="line">Successfully added user: &#123;</span><br><span class="line">    &quot;user&quot; : &quot;userName&quot;,</span><br><span class="line">    &quot;roles&quot; : [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;role&quot; : &quot;userAdminAnyDatabase&quot;,</span><br><span class="line">            &quot;db&quot; : &quot;admin&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>###如何进入<br>db.auth(‘userName’,’pwd’)<br>返回1就是成功</p>
-<h3 id="如何退出"><a href="#如何退出" class="headerlink" title="如何退出"></a>如何退出</h3><p>db.shutdownServer()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">没权限会导致如下</span><br><span class="line">2018-09-10T10:47:24.394+0800 E QUERY    [js] Error: shutdownServer failed: &#123;</span><br><span class="line">	&quot;ok&quot; : 0,</span><br><span class="line">	&quot;errmsg&quot; : &quot;command shutdown requires authentication&quot;,</span><br><span class="line">	&quot;code&quot; : 13,</span><br><span class="line">	&quot;codeName&quot; : &quot;Unauthorized&quot;</span><br><span class="line">&#125; :</span><br><span class="line">_getErrorWithCode@src/mongo/shell/utils.js:25:13</span><br><span class="line">DB.prototype.shutdownServer@src/mongo/shell/db.js:453:1</span><br><span class="line">@(shell):1:1</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/07/20/operation-mongodb/20180910102118.jpg" alt="cahan"><br>给上边的账号添加个hoseManager的权限就ok</p>
-<h3 id="设置阿里云端口权限"><a href="#设置阿里云端口权限" class="headerlink" title="设置阿里云端口权限"></a>设置阿里云端口权限</h3><p><img src="/2018/07/20/operation-mongodb/20180910105127.png" alt="aliyu"><br>ok</p>
-<h3 id="连接robo3t"><a href="#连接robo3t" class="headerlink" title="连接robo3t"></a>连接robo3t</h3><p>去官网下载robo3t<br>启动mongodb数据库<br><img src="/2018/07/20/operation-mongodb/20181115151039.png" alt="robo3t"><br>连接成功就可以去操作喽<br><img src="/2018/07/20/operation-mongodb/20180910102134.jpg" alt="over"></p>
+        <h1 id="小序"><a href="#小序" class="headerlink" title="小序"></a>小序</h1><p>第一次接触hapi这个框架是在掘金小册中看到了叶盛飞老师的<a href="https://juejin.im/book/5b63fdba6fb9a04fde5ae6d0" target="_blank" rel="noopener">基于hapi的Node.js小程序后端开发实践指南</a> 对hapi产生了浓厚的兴趣, 先简单介绍一下</p>
+<h1 id="hapi-js"><a href="#hapi-js" class="headerlink" title="hapi.js"></a>hapi.js</h1><blockquote>
+<p>用于构建应用程序和服务的丰富框架hapi使开发人员能够专注于编写可重用的应用程序逻辑，而不是花时间构建基础设施。hapi 是一个用来构建基于 Node.js 的应用和服务的富框架，能够帮助我们把关注重点放在高可用的应用业务逻辑层而不是构建架构。hapi 的官方 GitHub Repositories 中，提供了大量的常用高质量插件（100% 测试覆盖率），基本覆盖 Web 应用开发常用的功能。</p>
+</blockquote>
+<h1 id="身份验证"><a href="#身份验证" class="headerlink" title="身份验证"></a>身份验证</h1><p>hapi 的身份认证基于两个概念：schems和strategies。</p>
+<blockquote>
+<p>schems     : sechme是一个拥有签名function (server, options)的方法。server参数是需要添加这个 scheme 的服务器对象的引用,    options 参数是使用它注册 strategy 时的配置<br>strategies  : strategy 其实是一个预先配置好的 scheme 实例拷贝。</p>
+</blockquote>
+<p><img src="/2018/12/13/hapi-authorization/20181213101517.jpg" alt="xx"></p>
+<h1 id="开启身份验证"><a href="#开启身份验证" class="headerlink" title="开启身份验证"></a>开启身份验证</h1><p>为个别接口开启身份验证<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server.route(&#123;</span><br><span class="line">        method: <span class="string">'GET'</span>,</span><br><span class="line">        path: <span class="string">'/'</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">            auth: <span class="string">'simple'</span> <span class="comment">// 进行simple身份验证</span></span><br><span class="line">        &#125;,</span><br><span class="line">        handler: <span class="function"><span class="keyword">function</span> (<span class="params">request, h</span>) </span>&#123;</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">return</span> <span class="string">'welcome'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>全局开启接口身份验证<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二者只能存在一个, 不能同用</span></span><br><span class="line">server.auth.default(<span class="string">'simple'</span>); <span class="comment">// strategy</span></span><br><span class="line">server.auth.default(<span class="string">'simple'</span>, <span class="string">'xxxx'</span>); <span class="comment">// strategies</span></span><br></pre></td></tr></table></figure></p>
+<p style="color: #f33b45">接口内的权重大于全局，优先显示接口的</p>
+
+<h1 id="身份验证的-—-scope"><a href="#身份验证的-—-scope" class="headerlink" title="身份验证的 — scope"></a>身份验证的 — scope</h1><p>hapi提供了一个名为scope的基本的角色授权功能。</p>
+<p>scope: 值可以是范围字符串或范围字符串数组。</p>
+<p>您还可以访问请求对象（查询、参数、有效负载和凭据）上的属性，以通过在属性名周围使用“{和’}”字符来填充动态范围，例如“user-{params.id}”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">        auth: &#123;</span><br><span class="line">            strategy: <span class="string">'simple'</span>,</span><br><span class="line">            scope: [<span class="string">'user'</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    handler: <span class="function"><span class="keyword">function</span> (<span class="params">request, h</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'welcome'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="身份验证模式-—-mode"><a href="#身份验证模式-—-mode" class="headerlink" title="身份验证模式 — mode"></a>身份验证模式 — mode</h1><p>mode参数可以被设置为required，optional 或者try  。 这三种参数在注册 strategy 的时候方式相同。</p>
+<p>required：在访问路由的时候必须对用户进行身份进行验证，并且验证必须有效，否则他们将收到错误。</p>
+<p>optional：身份验证是可选的-请求必须包括有效凭证或根本没有凭证。</p>
+<p>try         ：与optional类似，尝试验证任何请求凭据，但是如果凭据无效，则无论身份验证错误如何，请求都会继续执行handler。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">        auth: &#123;</span><br><span class="line">            strategy: <span class="string">'simple'</span>,</span><br><span class="line">            mode: <span class="string">'try'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    handler: <span class="function"><span class="keyword">function</span> (<span class="params">request, h</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'welcome'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="身份验证模式-—-playload"><a href="#身份验证模式-—-playload" class="headerlink" title="身份验证模式 — playload"></a>身份验证模式 — playload</h1><p>如果设置了，则在处理传入请求有效负载之后对其进行身份验证。需要支持有效负载身份验证的策略（例如，Hawk,后续会）。当方案将身份验证选项.payload设置为true时，无法将其设置为“.”以外的值。</p>
+<p>false       ：无有效负载身份验证。</p>
+<p>required ：需要有效负载身份验证。</p>
+<p>optional  ：只有当客户端包括有效负载身份验证信息（例如，Hawk中的hash属性）时才执行有效负载身份验证</p>
+<p>在hapi的教程中 第一个就是身份验证 可见它的重要性收集了五种身份验证的插件， 在接下来文章中依次介绍</p>
+<p>hapi-auth-basic</p>
+<p>hapi-auth-cookie</p>
+<p>hapi-auth-hawk</p>
+<p>hapi-auth-bearer-token</p>
+<p>hapi-auth-jwt2</p>
+<p><img src="/2018/12/13/hapi-authorization/20181213101343.jpg" alt="xx"></p>
+<blockquote>
+<p>在产品中使用运行别人的代码时，你应该始终保持警惕—尽管这些代码目的在于保护你的应用。如果可以的话，在使用身份验证插件前先自行研究一下插件的源码，或者使用流行的、有优秀文档的、经过充分测试的插件，比如在Github上由hapi组织发布的插件。<br>来自  —hapi.js实战</p>
+</blockquote>
+<p>完事~</p>
 
       
     </div>
@@ -356,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/10/start-mongodb/" rel="next" title="start-mongodb">
-                <i class="fa fa-chevron-left"></i> start-mongodb
+              <a href="/2018/11/22/mini-cloud-dr/" rel="next" title="小程序云开发-导入(填坑)">
+                <i class="fa fa-chevron-left"></i> 小程序云开发-导入(填坑)
               </a>
             
           </div>
@@ -366,8 +393,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/23/system-mongodb/" rel="prev" title="开机自启mongodb">
-                开机自启mongodb <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/13/hapi-auth-basic/" rel="prev" title="hapi-auth-basic">
+                hapi-auth-basic <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

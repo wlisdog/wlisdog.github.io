@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="小序一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。既然需求已经订了，就搞一搞绘制二维码 先写元素123456789101112&amp;lt;view class=&apos;hxm-bg&apos;&amp;gt;    &amp;lt;view class=&apos;hxm-show&apos;&amp;gt;        &amp;lt;view class=&apos;canv">
+<meta name="description" content="小序一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。既然需求已经定了，就搞一搞绘制二维码 先写元素123456789101112&amp;lt;view class=&apos;hxm-bg&apos;&amp;gt;    &amp;lt;view class=&apos;hxm-show&apos;&amp;gt;        &amp;lt;view class=&apos;canv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序中动态绘制二维码">
 <meta property="og:url" content="http://loverwl.com/2018/06/20/canvas-qrcode/index.html">
 <meta property="og:site_name" content="Yhl">
-<meta property="og:description" content="小序一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。既然需求已经订了，就搞一搞绘制二维码 先写元素123456789101112&amp;lt;view class=&apos;hxm-bg&apos;&amp;gt;    &amp;lt;view class=&apos;hxm-show&apos;&amp;gt;        &amp;lt;view class=&apos;canv">
+<meta property="og:description" content="小序一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。既然需求已经定了，就搞一搞绘制二维码 先写元素123456789101112&amp;lt;view class=&apos;hxm-bg&apos;&amp;gt;    &amp;lt;view class=&apos;hxm-show&apos;&amp;gt;        &amp;lt;view class=&apos;canv">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://loverwl.com/2018/06/20/canvas-qrcode/20181120110303.jpg">
 <meta property="og:image" content="http://loverwl.com/2018/06/20/canvas-qrcode/20181120110230.jpg">
 <meta property="og:image" content="http://loverwl.com/2018/06/20/canvas-qrcode/20181120110129.jpg">
-<meta property="og:updated_time" content="2018-11-22T06:48:12.802Z">
+<meta property="og:updated_time" content="2018-12-13T08:51:32.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序中动态绘制二维码">
-<meta name="twitter:description" content="小序一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。既然需求已经订了，就搞一搞绘制二维码 先写元素123456789101112&amp;lt;view class=&apos;hxm-bg&apos;&amp;gt;    &amp;lt;view class=&apos;hxm-show&apos;&amp;gt;        &amp;lt;view class=&apos;canv">
+<meta name="twitter:description" content="小序一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。既然需求已经定了，就搞一搞绘制二维码 先写元素123456789101112&amp;lt;view class=&apos;hxm-bg&apos;&amp;gt;    &amp;lt;view class=&apos;hxm-show&apos;&amp;gt;        &amp;lt;view class=&apos;canv">
 <meta name="twitter:image" content="http://loverwl.com/2018/06/20/canvas-qrcode/20181120110303.jpg">
 
 
@@ -323,7 +323,7 @@
       
 
       
-        <h2 id="小序"><a href="#小序" class="headerlink" title="小序"></a>小序</h2><p>一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。<br>既然需求已经订了，就搞一搞绘制二维码</p>
+        <h2 id="小序"><a href="#小序" class="headerlink" title="小序"></a>小序</h2><p>一个新的小程序项目，VIP亲子年卡（以下简称客户端）, 和一个对应的商家端, 在做的过程中有一个需求，在客户端展示二维码， 商家端扫码获取信息。<br>既然需求已经定了，就搞一搞绘制二维码</p>
 <p>先写元素<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'hxm-bg'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'hxm-show'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'canvas-img'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;imagePath&#125;&#125;"</span> <span class="attr">mode</span>=<span class="string">'widthFix'</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'fs-28'</span>&gt;</span>参加活动请出示核销码<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"canvas-box"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 正方形 宽高一致--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">hidden</span>=<span class="string">"&#123;&#123;canvasHidden&#125;&#125;"</span> <span class="attr">style</span>=<span class="string">"width: 686rpx;height: 686rpx;background:#f1f1f1;"</span> <span class="attr">canvas-id</span>=<span class="string">"mycanvas"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><img src="/2018/06/20/canvas-qrcode/20181120110303.jpg" alt="yxq"></p>
 <p>样式<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.canvas-box</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">9999em</span>; <span class="comment">/* 让canvas放在可视范围外*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.canvas-img</span>&#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">500</span>rpx;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500</span>rpx;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.canvas-img</span> <span class="selector-tag">image</span> &#123;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">99</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -442,7 +442,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
