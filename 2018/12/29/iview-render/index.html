@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 在iview表格中渲染表单，并进行验证如图：看了官方的table组件， 首先想到的是render方法实现 使用render方法实现1234567891011121314151617181920212223242526&amp;#123;    title: &apos;礼金编号&apos;,    key: &apos;activity_code&apos;,    align: &apos;center&apos;,    width: 100,    r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iview-render表格中渲染表单及验证">
+<meta property="og:url" content="http://loverwl.com/2018/12/29/iview-render/index.html">
+<meta property="og:site_name" content="Yhl">
+<meta property="og:description" content="1. 在iview表格中渲染表单，并进行验证如图：看了官方的table组件， 首先想到的是render方法实现 使用render方法实现1234567891011121314151617181920212223242526&amp;#123;    title: &apos;礼金编号&apos;,    key: &apos;activity_code&apos;,    align: &apos;center&apos;,    width: 100,    r">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://loverwl.com/2018/12/29/iview-render/20181229135908682.png">
+<meta property="og:image" content="http://loverwl.com/2018/12/29/iview-render/20181229152402820.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/12/29/iview-render/20181229142854834.png">
+<meta property="og:image" content="http://loverwl.com/2018/12/29/iview-render/20181229144054695.png">
+<meta property="og:image" content="http://loverwl.com/2018/12/29/iview-render/20181229152335847.jpg">
+<meta property="og:image" content="http://loverwl.com/2018/12/29/iview-render/20181229151824630.jpg">
+<meta property="og:updated_time" content="2019-05-13T07:39:24.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iview-render表格中渲染表单及验证">
+<meta name="twitter:description" content="1. 在iview表格中渲染表单，并进行验证如图：看了官方的table组件， 首先想到的是render方法实现 使用render方法实现1234567891011121314151617181920212223242526&amp;#123;    title: &apos;礼金编号&apos;,    key: &apos;activity_code&apos;,    align: &apos;center&apos;,    width: 100,    r">
+<meta name="twitter:image" content="http://loverwl.com/2018/12/29/iview-render/20181229135908682.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://loverwl.com/2018/12/29/iview-render/"/>
+
+
+
+
+
+  <title>iview-render表格中渲染表单及验证 | Yhl</title>
+  
+
+
+
+
+
+
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yhl</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yhl's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loverwl.com/2018/12/29/iview-render/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yhl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yhl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iview-render表格中渲染表单及验证</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T15:18:06+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/29/iview-render/" class="leancloud_visitors" data-flag-title="iview-render表格中渲染表单及验证">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读数量&#58; </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-在iview表格中渲染表单，并进行验证"><a href="#1-在iview表格中渲染表单，并进行验证" class="headerlink" title="1. 在iview表格中渲染表单，并进行验证"></a>1. 在iview表格中渲染表单，并进行验证</h1><p>如图：<br><img src="/2018/12/29/iview-render/20181229135908682.png" alt="yuanxing"><br>看了官方的table组件， 首先想到的是render方法实现</p>
+<p>使用render方法实现<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    title: <span class="string">'礼金编号'</span>,</span><br><span class="line">    key: <span class="string">'activity_code'</span>,</span><br><span class="line">    align: <span class="string">'center'</span>,</span><br><span class="line">    width: <span class="number">100</span>,</span><br><span class="line">    render: <span class="function">(<span class="params">h, params</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * div 元素标签</span></span><br><span class="line"><span class="comment">         * &#123;&#125; 元素属性如: props style on</span></span><br><span class="line"><span class="comment">         * [] 子元素 ...</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">return</span> h(<span class="string">'div'</span>, &#123;&#125;, [</span><br><span class="line">            h(<span class="string">'Input'</span>, &#123;</span><br><span class="line">                props: &#123;</span><br><span class="line">                    placeholder: <span class="string">'请输入编号'</span>,</span><br><span class="line">                    value: <span class="keyword">this</span>.data[params.index].val</span><br><span class="line">                &#125;,</span><br><span class="line">                on: &#123;</span><br><span class="line">                    <span class="string">'on-change'</span>: <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">                        <span class="built_in">console</span>.log(e.tarage.value)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        ])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>绑定value实现双向数据绑定，但是这时候会有两个问题</p>
+<p><img src="/2018/12/29/iview-render/20181229152402820.jpg" alt="aiya"></p>
+<ol>
+<li>在输入时候每次进行复制 会跳出焦点，不聚焦, 这个网上有两种解决方法</li>
+</ol>
+<p><a href="https://github.com/iview/iview/issues/1781" target="_blank" rel="noopener">每次输入整行赋值  点击解决对应链接</a><br><a href="https://www.jianshu.com/p/17f4a77e8693" target="_blank" rel="noopener">每次输入获取焦点  点击解决对应链接</a></p>
+<ol start="2">
+<li>就比如说你做表单验证时, 赋值数据与视图渲染数据不同如:  当我输入框中输入的内容为’123’ 那么我把该内容改成’456’,第一次是可以的，剩下几次就不行了， <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'on-change'</span>: <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.target.value === <span class="string">'123'</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.data[params.index].val = <span class="string">'456'</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.data[params.index].val)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/2018/12/29/iview-render/20181229142854834.png" alt="aiya"><br>然后试了一下再套·一层Form表单验证, 还是不太乐观，rules验证只能判断value的默认值， 不是输入的值。不可取</p>
+<p><img src="/2018/12/29/iview-render/20181229144054695.png" alt="dm"><br><img src="/2018/12/29/iview-render/20181229152335847.jpg" alt="enjoy"></p>
+<p>换个思路<br>使用iview table组件中的slot slot-scope<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">columns: [&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        title: <span class="string">'Name'</span>,</span><br><span class="line">        slot: <span class="string">'name'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;]</span><br><span class="line">&lt;Table :columns=<span class="string">'columns'</span>  border :data=<span class="string">'data'</span>&gt;</span><br><span class="line">    &lt;template slot-scope=<span class="string">"&#123; row &#125;"</span> slot=<span class="string">"name"</span>&gt;</span><br><span class="line">        &lt;Input v-model=<span class="string">'row.name'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">Input</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>Table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在template中可以使用form表单进行表单验证，但是这个api是新增api 只支持 iview 3.2.0 以上版本</p>
+<p>现在使用的版本是 iview3.1.5  所以还不能使用这个新特性,查阅资料,大体上还是slot的思路去做的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;template slot=<span class="string">'name'</span> slot-scope=<span class="string">'props'</span>&gt;</span><br><span class="line">    &lt;Form :ref=<span class="string">'"coupon" + props.ind'</span> :model=<span class="string">'props.row'</span> :rules=<span class="string">'rules'</span>&gt;</span><br><span class="line">        &lt;FormItem prop=<span class="string">'name'</span>&gt;</span><br><span class="line">            &lt;Input v-model=<span class="string">'props.row.name'</span> placeholder=<span class="string">'请输入礼金编号'</span>/&gt;</span><br><span class="line">        &lt;<span class="regexp">/FormItem&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Form&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">render: <span class="function">(<span class="params">h, params</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.data[params.index] = params.row</span><br><span class="line">    <span class="keyword">return</span> h(</span><br><span class="line">        <span class="string">'div'</span>,</span><br><span class="line">        <span class="keyword">this</span>.$refs.couponTable.$scopedSlots.name(&#123;</span><br><span class="line">            row: params.row,</span><br><span class="line">            ind: params.row._index</span><br><span class="line">        &#125;)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>适合3.15版本， 把需要做的表单验证都在写rules，对应参数即可，</p>
+<blockquote>
+<p>再pick一个小技巧, 想让ivieiw 中的table表格，宽度自适应， 但是有一个最低宽度来保证展示内容的完整性， 其余可以自适应，在每一个columns中给需要展示内容的地方一个minWidth: xx 这样在屏幕变化时 如果屏幕可视窗口小于minWidth的大小，时候 table会出现横向滚动条， 屏幕可视窗口大于minWidth和时，会进行宽度自适应。</p>
+</blockquote>
+<p>告辞!<br><img src="/2018/12/29/iview-render/20181229151824630.jpg" alt="gaoci"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/hapi-auth-basic/" rel="next" title="hapi-auth-basic">
+                <i class="fa fa-chevron-left"></i> hapi-auth-basic
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/15/iview-validate/" rel="prev" title="iview 表格渲染表单校验踩坑集锦">
+                iview 表格渲染表单校验踩坑集锦 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="Yhl" />
+            
+              <p class="site-author-name" itemprop="name">Yhl</p>
+              <p class="site-description motion-element" itemprop="description">i'm a small programmers</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wlisdog" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/my_atlassian_yhl" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yhl</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("fNdGzojoD3r0VVXQAEKGSbdr-gzGzoHsz", "rnXBxt6FbsRoaWPG0t4QQ8VX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":100,"height":100,"hOffset":-5,"vOffset":0},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
